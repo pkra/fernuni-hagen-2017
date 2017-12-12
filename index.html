@@ -14,6 +14,11 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .inverse {
+          background: #272822;
+          color: #777872;
+          text-shadow: 0 0 20px #333;
+      }
     </style>
   </head>
   <body>
@@ -21,93 +26,303 @@
 
 class: center, middle
 
-# Grundzüge der Barrierefreiheit im Netz
+# Barrierefreiheit im Netz
+
+## Grundlagen und Tipps zur Aufbereitung von (MINT) Dokumenten
+
+Workshop: Technische Erstellung mathematisch- naturwissenschaftlicher Inhalte für das Web, 13. Dez. 2017, FernUni Hagen
+
+Peter Krautzberger, [krautzource](https://www.krautzource.com)
 
 ---
 
 # Übersicht
 
 1. Die Web Plattform: Barrierefreiheit frei Haus
-  * Mit HTML5 wurde HTML semantisch getrimmt
-    * übersicht http://html5doctor.com/
-    * Wir machen Barrierefreiheit meist selbst kaputt, weil wir schludern
-  * HTML+CSS ist die primäre "separation of concerns"
-  * SVG bietet hervorragenden Kompromiss zwischen visuellem und strukturiertem
-  * JS, canvas, webgl etc bieten extreme erweiterbarkeit
-1. Barrieren die wir aufbauen
-    * Visuell: für Menschen mit Blindheit, eingeschränktes Sehvermögen, Farbfehlsichtigkeit
-    * Akkustisch: Taubheit, Schwerhörigkeit
-    * Bewegung: keine Mausnutzung, langsamere Reaktionszeit, veringerte Feinmotorik
-    * Kognitiv: Lernbehinderungen, Ablenkbarkeit, Einschränkung bei der Verarbeitung großer Informationsmengen
-1. Barrierefreiheit definieren & testen
-  * BITV < WCAG
-    * BITV nur für Bund, sehr eingeschränkt
-    * http://webkrauts.de/artikel/2011/bitv-20-kraft
-  * WCAG: POUR Prinzipen
-    * Perceivable
-    * Operable
-    * Understandable
-    * Robust
-    * A, AA, AAA
-    * Barrierefreiheit als
-    * 2.0
-      * https://www.w3.org/Translations/WCAG20-de/
-    * aber bald 2.1 https://www.w3.org/TR/WCAG21/, http://adrianroselli.com/2017/08/whats-new-in-wcag-2-1.html
-  * 60+ Kriterien
-    * kurzform https://webaim.org/standards/wcag/checklist
-      * https://uni-24.de/webaims-wcag-2-0-checklist/
-      *
-    * Ausdrucken und Aufhängen!
-    * aber deutlich wenig ist relevant hier da nicht kontrollierbar durch euch (zB Moodle, IT)
-    * Section 1 (in part), 2.1, 2.4 (in part), 3.1, 4 (easy)
-    * more resources: https://webaim.org/articles/, oft gibt es übersetzungen, zB https://meiert.com/de/publications/translations/webaim.org/intro/
-  * Tools
-    * Chrome audit, tota11y, aXe, chromelens,
-    * chromevox, voiceover, nvda, ms narrator, orca
-      * https://www.youtube.com/watch?v=92pM6hJG6Wo
-      * https://www.youtube.com/watch?v=q_ATY9gimOM
-      * sysadmin level: tenon
-1. Dokumente präperieren: Struktur erkennen und erhalten
-  * Jede Schreibsoftware bieten struktur, Autoren nutzen sie oft nicht
-    * für Barrierefreiheit essentiell
-  * HTML5 struktur ist einfach und robust
-    * TOC, navigationen
-    * Sektionierung, Überschriften, Asides, Fuß, Adressen
-    * Paras, Listen, Zitate, Abbildungen, Tabellen, pre
-    * multimediales
-    * text: betonung, abkürzungen, definitionen, zitieren, code, kbd, samp, var
-2. Formeln und Gleichungen barrierefrei gestalten
-  * use the source!
-  * asciimath > TeX > mathml
-  * im vergleich
-2. Barrierefreie Visualisierung
-  * https://av.tib.eu/
-    * z.B. https://av.tib.eu/media/9456
-  * https://css-tricks.com/accessible-svgs/
+  1. Barrieren, die wir aufbauen
+  1. Barrierefreiheit definieren & testen
+1. Dokumente präperieren
+  1. Struktur erkennen, erhalten, ergänzen
+  1. Formeln barrierefrei gestalten
+  1. Barrierefreie Visualisierung
+1. Werkzeuge für erste Schritte
+1. Die Zukunft, ungleich verteilt
+
+---
+
+# Die Web Plattform = <br> Barrierefreiheit frei Haus
+
+* HTML5 = HTML ist semantisch
+  * [(Artikel) Glossar, html5doctor](http://html5doctor.com/#glossary)
+* CSS und [<i lang="en">separation of concerns</i>](https://en.wikipedia.org/wiki/Separation_of_concerns)
+* SVG - der ideale Kompromiss
+* Flexible Erweiterbarkeit und Interaktivität
+
+???
+
+* HTML+CSS ist die primäre "separation of concerns"
+* SVG bietet hervorragenden Kompromiss zwischen visuellem und strukturiertem
+* JS, canvas, webgl etc bieten extreme erweiterbarkeit
+
+---
+
+# Barrieren, die wir aufbauen
+
+👁 Visuell
+
+👂 Akkustisch
+
+🖐 Bewegung
+
+🧠 Kognitiv
+
+
+[(Talk) Selfish Accessibility, Adria Roselli](http://adrianroselli.com/2017/03/selfish-accessibility-slides-from-wordcamp-london-2017.html)
+
+???
+* Wir machen Barrierefreiheit meist selbst kaputt, weil wir schludern
+* Visuell: für Menschen mit Blindheit, eingeschränktes Sehvermögen, Farbfehlsichtigkeit
+* Akkustisch: Taubheit, Schwerhörigkeit
+* Bewegung: keine Mausnutzung, langsamere Reaktionszeit, veringerte Feinmotorik
+* Kognitiv: Lernbehinderungen, Ablenkbarkeit, Einschränkung bei der Verarbeitung großer Informationsmengen
+
+---
+
+# Barrierefreiheit definieren
+
+* BITV < WCAG
+  * [(spec) WCAG 2.0](https://www.w3.org/Translations/WCAG20-de/) (aber bald [2.1](https://www.w3.org/TR/WCAG21/))
+  * [(Artikel) webkrauts](http://webkrauts.de/artikel/2011/bitv-20-kraft)
+* WCAG's POUR Prinzipien
+  * Perceivable
+  * Operable
+  * Understandable
+  * Robust
+* Barrierefreiheit als Prozess
+  * Mensch im Zentrum
+???
+
+* BITV < WCAG
+* BITV nur für Bund, sehr eingeschränkt
+* http://webkrauts.de/artikel/2011/bitv-20-kraft
+* POUR Prinzipen
+* Barrierefreiheit als Prozess
+* Menschen im Zentrum
+
+---
+
+# Barrierefreiheit testen
+
+* WCAG Konformität
+  * ~60 Kriterien
+  * Aufbauende Level: A, AA, AAA
+  * [(Referenz) WCAG Quickref](https://www.w3.org/WAI/WCAG20/quickref/)], [(Checklist) WebAim](https://webaim.org/standards/wcag/checklist) ([PDF](https://webaim.org/standards/wcag/WCAG2Checklist.pdf), [Übersetzung](https://uni-24.de/webaims-wcag-2-0-checklist/))
+* Werkzeuge
+    * [tota11y](https://khan.github.io/tota11y/)
+    * [aXe](https://www.deque.com/products/axe/)
+    * [WAVE](http://wave.webaim.org/extension/)
+    * [Chromelens](http://chromelens.xyz/)
+    * [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools/)
+* Mit echten assistiven Technologien testen, z.B.,
+  * [NVDA](https://www.nvaccess.org/)
+  * [Chromevox](http://www.chromevox.com/)
+  * [VoiceOver](https://www.apple.com/accessibility/)
+  * [Microsoft Narrator](https://support.microsoft.com/en-us/help/22798/windows-10-narrator-get-started)
+  * [Android Talkback](https://support.google.com/accessibility/android/answer/6283677?hl=de)
+  * [Gnome ORCA](https://wiki.gnome.org/Projects/Orca)
+
+[(Video) "normale" Geschwindigkeit](https://www.youtube.com/watch?v=92pM6hJG6Wo)
+
+???
+
+* Barrierefreiheit als Prozess
+  * Menschen im Zentrum
+* Level: A, AA, AAA
+* 60+ Kriterien
+* kurzform https://webaim.org/standards/wcag/checklist
+  * https://uni-24.de/webaims-wcag-2-0-checklist/
+* Ausdrucken und Aufhängen!
+* aber deutlich wenig ist relevant hier da nicht kontrollierbar durch euch (zB Moodle, IT)
+  * Section 1 (in part), 2.1, 2.4 (in part), 3.1, 4 (easy)
+* more resources: https://webaim.org/articles/, oft gibt es übersetzungen, zB https://meiert.com/de/publications/translations/webaim.org/intro/
+* Tools
+* Chrome audit, tota11y, aXe, chromelens,
+* chromevox, voiceover, nvda, ms narrator, orca
+  * https://www.youtube.com/watch?v=92pM6hJG6Wo
+  * https://www.youtube.com/watch?v=q_ATY9gimOM
+  * sysadmin level: tenon
+
+---
+
+# Dokumente präperieren: Struktur erkennen, erhalten, ergänzen
+
+Auszug: [Principles of Accessible Design](https://webaim.org/intro/#principles) ([Übersetzung](https://meiert.com/de/publications/translations/webaim.org/intro/))
+
+* Provide appropriate alternative text
+* Provide appropriate document structure
+* Provide headers for data tables
+* Ensure links make sense out of context
+* Caption and/or provide transcripts for media
+* Do not rely on color alone to convey meaning
+* Make sure content is clearly written and easy to read
+
+???
+
+* Jede Schreibsoftware bieten struktur, Autoren nutzen sie oft nicht
+  * für Barrierefreiheit essentiell
+* HTML5 struktur ist einfach und robust
+  * TOC, navigationen
+  * Sektionierung, Überschriften, Asides, Fuß, Adressen
+  * Paras, Listen, Zitate, Abbildungen, Tabellen, pre
+  * multimediales
+  * text: betonung, abkürzungen, definitionen, zitieren, code, kbd, samp, var
+
+---
+
+# Formeln barrierefrei gestalten: <br> Formate
+
+
+* <details>
+  <summary>TeX/LaTeX</summary>
+   <code>x = {-b \pm \sqrt{b^2-4ac} \over 2a}</code>
+  </details>
+* <details>
+    <summary>(Presentation) MathML</summary>
+     <code>&amp;lt;math&amp;gt; &amp;lt;mi&amp;gt;x&amp;lt;/mi&amp;gt; &amp;lt;mo&amp;gt;=&amp;lt;/mo&amp;gt; &amp;lt;mrow&amp;gt; &amp;lt;mfrac&amp;gt; &amp;lt;mrow&amp;gt; &amp;lt;mo&amp;gt;&amp;#x2212;&amp;lt;/mo&amp;gt; &amp;lt;mi&amp;gt;b&amp;lt;/mi&amp;gt; &amp;lt;mo&amp;gt;&amp;#x00B1;&amp;lt;/mo&amp;gt; &amp;lt;msqrt&amp;gt; &amp;lt;msup&amp;gt;&amp;lt;mi&amp;gt;b&amp;lt;/mi&amp;gt;&amp;lt;mn&amp;gt;2&amp;lt;/mn&amp;gt;&amp;lt;/msup&amp;gt; &amp;lt;mo&amp;gt;&amp;#x2212;&amp;lt;/mo&amp;gt; &amp;lt;mn&amp;gt;4&amp;lt;/mn&amp;gt;&amp;lt;mi&amp;gt;a&amp;lt;/mi&amp;gt;&amp;lt;mi&amp;gt;c&amp;lt;/mi&amp;gt; &amp;lt;/msqrt&amp;gt; &amp;lt;/mrow&amp;gt; &amp;lt;mrow&amp;gt; &amp;lt;mn&amp;gt;2&amp;lt;/mn&amp;gt;&amp;lt;mi&amp;gt;a&amp;lt;/mi&amp;gt; &amp;lt;/mrow&amp;gt; &amp;lt;/mfrac&amp;gt; &amp;lt;/mrow&amp;gt;&amp;lt;/math&amp;gt;</code>
+    </details>
+* <details>
+    <summary>AsciiMath etc</summary>
+     <code>x = (-b +- sqrt(b^2-4ac))/(2a)</code>
+    </details>
+* [OOML](https://blogs.msdn.microsoft.com/murrays/2006/10/06/mathml-and-ecma-math-omml/)
+* Programmiersprachen, CAS etc
+
+???
+
+* use the source!
+* asciimath > TeX > mathml
+
+* im vergleich
+  * TeX/LaTeX
+    * strengths: canonical rendering, stable subsets (texvc, mathjax, jats4Reuse), made for human authoring, accessible for proficient users
+    * weaknesses: TeX vs LaTeX, layout language, no semantics & not generally accessible, baroque syntax, print-focus, Chomsky Type 0, incompatible half-breeds for the web
+  * (Presentation) MathML
+    * strengths: XML language, W3C and ISO standard
+    * weaknesses: does not specify layout (only abstraction thereof), not supported by browser vendors, not made for humans, no semantics / Content MathML is  mess, not accessible
+    * state of MathML Editors - a mess
+    * vendors quality - a mess
+  * [reduce] AsciiMath
+    * strengths: made for tiny humans, easy to convert to MathML or TeX, limited expressivity makes it somewhat accessible
+    * weakness: limited expressivity, not well established, not standardized
+
+---
+
+# Formeln barrierefrei gestalten: <br> Erstellen
+
+
+* Rohtext
+* <details>
+    <summary>Spezialsoftware</summary>
+    e.g., WIRIS, MathMagic, MathQuill, MathLive, MathType, MathFlow, HostMath
+    </details>
+* <details>
+    <summary>Eingebaute Tools</summary>
+    e.g., MS Word, LibreOffice, Maple, Mathematica, MathWorks
+    </details>
+
+---
+
+# Formeln barrierefrei gestalten: <br> Assistive Technologien
+
+* MathML und assistive Technologien
+* MathJax Accessibility Extensions ([Dokumentation](http://docs.mathjax.org/en/latest/misc/accessibility-features.html#mathjax-accessibility-extensions))
+
+???
+* MathML and accessibility
+* understanding MathML's role
+* state of assistive technology for "plain" MathML
+  * JAWS
+  * VoiceOver
+  * ChromeVox
+  * MathPlayer
+* interoperability with other standards (HTML, ARIA etc)
+* :-(
+* tools for making math content accessible
+* automated (speech-rule-engine)
+  * proprietary: Desmos, Khan Acadeym
+* manual (ARIA)
+
+---
+
+
+# Formeln barrierefrei gestalten: Tips
+
+Zu Vermeiden:
+
+* KISS
+* überlange Formeln
+* tabellarische Formeln
+* manuelle Zeilenumbrüche
+* übermäßige Kompression
+* Prosa in Formeln
+* Übergang von Formeln zu Grafik
+* Überladung von Semantik durch stylistische Tricks
+
+
+---
+
+# Barrierefreie Visualisierung
+
+* Basics: `<figure>`, `<figcaption>`, `<img alt="...">`
+* SVG, best-in-class
+  * [(Slides) SVG Accessibility, Chaals McCathie Nevile (Yandex), Léonie Watson (TPG)](http://decks.tink.uk/2017/csun/index.html)
+  * [(Artikel) Accessible SVGs,Heather Migliorsi](https://css-tricks.com/accessible-svgs/)
+* Barrierefreie Video: Captioning is king
+  * [TiB AV Portal](https://av.tib.eu/)
+     * [Beispiel](https://av.tib.eu/media/9456)
+  * [Moodle Video](https://docs.moodle.org/31/en/Video)
+  * [Youtube captioning services](https://support.google.com/youtube/answer/6373554?hl=en)
+
+???
+
+---
+
+# Dokumente präperieren: Formate und ihre Werkzeuge
+
+* Microsoft Word and Libre Office
+* TeX
+  * [latexml](http://dlmf.nist.gov/LaTeXML/)
+  * [tex4ht](https://www.tug.org/tex4ht/)
+* [pandoc](http://pandoc.org/)
+* HTML
+  * markdown ([markdown](http://commonmark.org/), [stackedit](https://stackedit.io/app))
+  * Computing Notebooks ([Jupyter](https://jupyter.org/), [Rstudio](https://www.rstudio.com/))
+  * Cloud Authoring ([Authorea](https://www.authorea.com/), [Google Docs](https://docs.google.com))
+
+???
+
+* Word => bei defauls oder FernUni vorlagen bleiben, bleib strukturiert (Word kennt nur paragraphen), nutze den eingebauten equation editor
+  * aber konvertiere zu HTML mit pandoc oder anderem.
+* TeX
+  * latexml: (too) faithful to LaTeX, ok semantics, limited package support
+  * tex4ht: most complete, bad semantics, best package support
+  * pandoc: opinionated, poor package support, best semantics
+  * Tricks:
   * http://tex.stackexchange.com/questions/124279/tikz-add-alt-tag-caption-invisible-text-for-accessibility
-1. Dokumente präperieren: look around tools
-  * Word => bei defauls oder FernUni vorlagen bleiben, bleib strukturiert (Word kennt nur paragraphen), nutze den eingebauten equation editor
-    * aber konvertiere zu HTML mit pandoc oder anderem.
-  * TeX
-    * latexml
-    * tex4ht
-    * pandoc
-  * HTML
-    * markdown+extensions
-    * Authorea
-    * Google Docs
-    * special formatsmathbook XML
-3. Die Zukunft, ungleich verteilt
-  * https://youtu.be/_ZY_rFie2iw
-  * http://progressiveaccess.com/chemistry/index.php
-  * http://progressiveaccess.com/chemistry/resources.php
+* HTML
+  * markdown+extensions
+  * Authorea
+  * Google Docs
+  * special formatsmathbook XML
 
 ---
 
+# Die Zukunft, ungleich verteilt
 
+* http://progressiveaccess.com/chemistry/index.php
+* http://progressiveaccess.com/chemistry/resources.php
+* https://youtu.be/_ZY_rFie2iw
 
-
----
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
@@ -117,3 +332,10 @@ class: center, middle
     </script>
   </body>
 </html>
+
+
+<!--
+
+
+
+ -->

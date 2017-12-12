@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>An Erd&#x02DD;os&#8211;Hajnal analogue for permutation classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" />
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" />
+<!-- html,htex4ht,xhtml -->
+<meta name="src" content="erdos-hajnal-DMTCS.tex" />
+<link rel="stylesheet" type="text/css" href="erdos-hajnal-DMTCS.css" />
+ <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { Macros: {  ket: ['{\\left|\#1\\right\\rangle}',1], Av: '\\operatorname{Av}', Grid: '\\operatorname{Grid}', C: '\\mathcal{C}', D: '\\mathcal{D}', st: '\\::\\:'  }, equationNumbers: { autoNumber: "AMS" } }, extensions: ["tex2jax.js"], tex2jax: {  inlineMath: [ ['\$','\$'], ["\\\\(","\\\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true } }); </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+</head><body
+>
+  <div class="maketitle">
+
+
+
+
+
+
+<h2 class="titleHead">An
+Erd&#x0151;s&#8211;Hajnal
+analogue
+for
+permutation
+classes</h2>
+<div class="author" >                                                                       <span
+class="ptmr7t-x-x-144">Vincent</span>
+<span
+class="ptmr7t-x-x-144">Vatter</span></div>
+<span
+class="ptmri7t-x-x-90">Department of Mathematics, University of Florida, Gainesville, Florida, USA</span>
+<span
+class="ptmri7t-">received 4</span><span
+class="ptmri7t-x-x-80">th</span> <span
+class="ptmri7t-">Nov.</span><span
+class="ptmri7t-">&#x00A0;2015</span>, <span
+class="ptmri7t-">accepted 8</span><span
+class="ptmri7t-x-x-80">th</span> <span
+class="ptmri7t-">Feb.</span><span
+class="ptmri7t-">&#x00A0;2016</span>.
+____________________________________________
+<div class="thanks" ><br /><a
+ id="tk-1"></a><span class="thank-mark"><span
+class="cmsy-10">*</span></span>The author was partially supported by the National Science Foundation under Grant Number DMS-1301692.</div>
+</div><div
+class="abstract"
+>
+   <span
+class="ptmr7t-x-x-90">Let</span> $\mathcal {C}$ <span
+class="ptmr7t-x-x-90">be a permutation class that does not contain all layered permutations or all colayered permutations. We prove</span><span
+class="ptmr7t-x-x-90">that every permutation in</span>  $\mathcal {C}$ <span
+class="ptmr7t-x-x-90">contains a monotone subsequence of linear size.</span>
+<!--l. 59--><p class="noindent" ><span
+class="ptmb7t-x-x-90">Keywords: </span><span
+class="ptmr7t-x-x-90">grid classes, monotone subsequences, permutations</span>_________________________________________________________________________________________
+</p>
+</div>
+
+
+
+<!--l. 103--><p class="indent" >  Ramsey&#8217;s Theorem tells us that every graph on $n$ vertices has a clique or independent set of size at least a
+constant times $\log n$. In 1989, Erd&#x0151;s and Hajnal conjectured that one can do much better when avoiding a fixed induced
+subgraph:
+</p>
+  <div class="newtheorem">
+<!--l. 106--><p class="noindent" ><span class="head">
+<span
+class="ptmb7t-">The Erd</span><span
+class="ptmb7t-">&#x0151;s&#8211;Hajnal Conjecture</span><span
+class="ptmb7t-">&#x00A0;[</span><a
+href="#Xerdos:ramsey-type-the:"><span
+class="ptmb7t-">2</span></a><span
+class="ptmb7t-">].</span>  </span>For  every  graph  $H$  there  is  a  constant  $\delta >0$  such  that  every  graph  on  $n$
+vertices which does not contain $H$ as an induced subgraph has a clique or independent set of size at least $n^\delta $.
+</p>
+  </div>
+<!--l. 110--><p class="indent" >  We refer to Chudnovsky&#8217;s survey&#x00A0;[<a
+href="#Xchudnovsky:the-erdos--hajn:">1</a>] for an account of the progress that has been made toward
+the Erd&#x0151;s&#8211;Hajnal Conjecture. Here we investigate a version of this conjecture for permutations. In
+this context, the analogue of the induced subgraph order is the permutation pattern order and the
+analogues of cliques and independent sets are decreasing and increasing subsequences, respectively. Thus
+the naive translation of the Erd&#x0151;s&#8211;Hajnal Conjecture to permutations is well known to hold with
+$\delta =\nicefrac {1}{2}$:
+</p>
+  <div class="newtheorem">
+<!--l. 113--><p class="noindent" ><span class="head">
+<span
+class="ptmb7t-">The Erd</span><span
+class="ptmb7t-">&#x0151;s&#8211;Szekeres Theorem</span><span
+class="ptmb7t-">&#x00A0;[</span><a
+href="#Xerdos:a-combinatorial:"><span
+class="ptmb7t-">3</span></a><span
+class="ptmb7t-">].</span>  </span>Every permutation of length at least $(k-1)(\ell -1)+1$ contains either a decreasing
+subsequence of length $k$ or an an increasing subsequence of length $\ell $.
+</p>
+  </div>
+<!--l. 117--><p class="indent" >  We instead ask for a stronger conclusion. A <span
+class="ptmri7t-">permutation class </span>is a downset of permutations under
+the containment order. We show (Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a>) that unless a permutation class contains all layered
+permutations or all colayered permutations, its members contain monotone subsequences of linear
+size.
+</p><!--l. 119--><p class="indent" >  The Erd&#x0151;s&#8211;Szekeres Theorem is best possible in that there are permutations of length $(k-1)(\ell -1)$ which have neither
+decreasing subsequences of length $k$ nor increasing subsequences of length $\ell $. Focusing on the case $k=\ell $, we call a
+permutation of length $k^2$ <span
+class="ptmri7t-">Erd</span><span
+class="ptmri7t-">&#x0151;s&#8211;Szekeres extremal </span>if it does not contain a monotone subsequence of length $k+1$. If
+follows from the Robinson&#8211;Schensted correspondence and the Hook Length Formula that the number of
+Erd&#x0151;s&#8211;Szekeres extremal permutations of length $k^2$ is \[ \left (\frac {(k^2)!}{1^1\cdot 2^2\cdot 3^3\cdots k^k\cdot (k+1)^{k-1}\cdot (k+2)^{k-2}\cdots (2k-1)^1}\right )^2, \] sequence A079402 in the OEIS&#x00A0;[<a
+href="#Xsloane:the-on-line-enc:">15</a>]. One of the earliest
+references to this formula is Stanley&#8217;s <span
+class="ptmri7t-">Monthly </span>solution&#x00A0;[<a
+href="#Xstanley:solution-to-pro:5641">12</a>] from 1969. There has also been some recent interest
+in these permutations. In particular, Romik&#x00A0;[<a
+href="#Xromik:permutations-wi:">11</a>] computed the limit shape of Erd&#x0151;s&#8211;Szekeres extremal
+permutations. Additional results in this direction have been obtained by Kim&#x00A0;[<a
+href="#Xkim:on-increasing-s:">9</a>], Pittel and Romik&#x00A0;[<a
+href="#Xpittel:limit-shapes-fo:">10</a>], and
+Su&#x00A0;[<a
+href="#Xsu:on-increasing-s:">13</a>].
+</p>
+  <hr class="figure" /><div class="figure"
+>
+
+
+
+<a
+ id="x1-21"></a>
+
+
+
+<div class="center"
+>
+<!--l. 130--><p class="noindent" >
+<!--l. 136--><p class="noindent" ><object data="erdos-hajnal-DMTCS-1.svg" width="92.42824 " height="93.43515 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<object data="erdos-hajnal-DMTCS-2.svg" width="92.42824 " height="93.43515 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<br /><div class="caption"
+><span class="id">Fig.&#x00A0;1: </span><span
+class="content">The layered permutation $321\ 654\ 987=\oplus ^3 (321)$ and the colayered permutation $789\ 456\ 123=\ominus ^3 (123)$.</span></div><!--tex4ht:label?: x1-21 -->
+
+
+
+  </div><hr class="endfigure" />
+<!--l. 149--><p class="indent" >  Despite the fact that there are a great many extremal Erd&#x0151;s&#8211;Szekeres permutations, we need to define only two
+families, the <tspan font-family="ptmri7t" font-size="">layered </tspan>and <tspan font-family="ptmri7t" font-size="">colayered </tspan>extremal Erd&#x0151;s&#8211;Szekeres permutations, of which examples are plotted in
+Figure&#x00A0;<a
+href="#x1-21">1<!--tex4ht:ref: fig-layered-EES --></a>. It is convenient to use the <tspan font-family="ptmri7t" font-size="">sum </tspan>and <tspan font-family="ptmri7t" font-size="">skew sum </tspan>operations in defining these permutations, which can be
+defined pictorially as below. </p>
+<div class="center"
+>
+<!--l. 150--><p class="noindent" >
+</p><!--l. 151--><p class="noindent" >$\pi \oplus \sigma =$ <object data="erdos-hajnal-DMTCS-3.svg" width="40.00348 " height="40.00348 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+$\pi \ominus \sigma =$ <object data="erdos-hajnal-DMTCS-4.svg" width="40.00348 " height="40.00348 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<!--l. 167--><p class="noindent" >We use the symbols $\oplus ^k$ and $\ominus ^k$ to denote repeated sums and skew sums, respectively, so the extremal Erd&#x0151;s&#8211;Szekeres
+layered permutation of length $k^2$ is \[ \oplus ^k (k\cdots 21) = \underbrace {(k\cdots 21)\oplus \cdots \oplus (k\cdots 21)}_{\text {\footnotesize $k$ summands}}. \] We show that these two families of extremal permutations are the only
+obstructions preventing a class from having a linear bound on monotone subsequences:
+</p>
+  <div class="newtheorem">
+<!--l. 175--><p class="noindent" ><span class="head">
+<a
+ id="x1-3r1"></a>
+<tspan font-family="ptmb7t" font-size="">Theorem 1.</tspan>  </span> <tspan font-family="ptmri7t" font-size="">Let</tspan> $\C $ <tspan font-family="ptmri7t" font-size="">be a permutation class that does not contain the class of layered permutations or the</tspan>
+<tspan font-family="ptmri7t" font-size="">class of colayered permutations. There is a constant</tspan> $c>0$ <tspan font-family="ptmri7t" font-size="">such that every permutation of length</tspan> $n$ <tspan font-family="ptmri7t" font-size="">in</tspan> $\C $ <tspan font-family="ptmri7t" font-size="">contains a</tspan>
+<tspan font-family="ptmri7t" font-size="">monotone subsequence of length at least</tspan> $cn$<tspan font-family="ptmri7t" font-size="">.</tspan>
+</p>
+  </div>
+<!--l. 180--><p class="indent" >  One special case of Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> is quite easy. By the folklore result that every permutation avoiding $k\cdots 21$ can be
+written as the union of $k-1$ increasing sequences (which can also be viewed as a consequence of Greene&#8217;s
+Theorem&#x00A0;[<a
+href="#Xgreene:an-extension-of:">4</a>]), we obtain the following.
+</p>
+  <div class="newtheorem">
+<!--l. 182--><p class="noindent" ><span class="head">
+<a
+ id="x1-4r2"></a>
+<tspan font-family="ptmb7t" font-size="">Proposition 2.</tspan>  </span>  <tspan font-family="ptmri7t" font-size="">Let</tspan>  $\C $  <tspan font-family="ptmri7t" font-size="">be  a  permutation  class  that  does  not  contain</tspan>  $k\cdots 21$  <tspan font-family="ptmri7t" font-size="">(or,  by  symmetry,</tspan>  $12\cdots k$<tspan font-family="ptmri7t" font-size="">).  Then  every</tspan>
+<tspan font-family="ptmri7t" font-size="">permutation of length</tspan> $n$ <tspan font-family="ptmri7t" font-size="">in</tspan> $\C $ <tspan font-family="ptmri7t" font-size="">contains a monotone subsequence of length at least</tspan> $n/(k-1)$<tspan font-family="ptmri7t" font-size="">.</tspan>
+</p>
+  </div>
+<!--l. 187--><p class="indent" >  To establish Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> we first recall some results on transversals of
+
+
+
+(nonhomogeneous<span class="footnote-mark"><a
+href="erdos-hajnal-DMTCS2.html#fn2x0"><sup class="textsuperscript">&#8224;</sup></a></span><a
+ id="x1-5f2"></a> )
+$d$-intervals (although we only appeal to the case $d=2$ in what follows). Let $L_1$, $\dots $, $L_d$ be disjoint copies of the real line. A
+$d$-interval $I$ is a nonempty subset of $L_1\cup \cdots \cup L_d$ such that each <tspan font-family="ptmri7t" font-size="">component</tspan> $I\cap L_i$ is either empty or a closed interval. The <tspan font-family="ptmri7t" font-size="">packing</tspan>
+<tspan font-family="ptmri7t" font-size="">number </tspan>of a set $\mathfrak {I}$ of $d$-intervals is the maximum number of pairwise disjoint elements of $\mathfrak {I}$, and this quantity is
+denoted $\nu (\mathfrak {I})$. A subset of $L_1\cup \cdots \cup L_d$ which intersects every member of $\mathfrak {I}$ is called a <tspan font-family="ptmri7t" font-size="">transversal </tspan>of $\mathfrak {I}$ and the minimum size of a
+transversal of $\mathfrak {I}$ is its <tspan font-family="ptmri7t" font-size="">transversal number</tspan>, $\tau (\mathfrak {I})$.
+</p>
+  <hr class="figure" /><div class="figure"
+>
+
+
+
+<a
+ id="x1-62"></a>
+
+
+
+<div class="center"
+>
+<!--l. 191--><p class="noindent" >
+<!--l. 215--><p class="noindent" ><object data="erdos-hajnal-DMTCS-5.svg" width="169.19379 " height="144.51668 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<object data="erdos-hajnal-DMTCS-6.svg" width="192.09006 " height="159.20222 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+</div>
+<br /> <div class="caption"
+><span class="id">Fig.&#x00A0;2: </span><span
+class="content">A set of $2$-intervals (left) arising from a set of axis-parallel rectangles (right).</span></div><!--tex4ht:label?: x1-62 -->
+
+
+
+  </div><hr class="endfigure" />
+<!--l. 239--><p class="indent" >  An example of a set of $2$-intervals is shown on the left of Figure&#x00A0;<a
+href="#x1-62">2<!--tex4ht:ref: fig-2-interval --></a>. In this example, the two copies of the real
+line are $L_x$ and $L_y$ and the $2$-intervals are $\mathfrak {I}=\{I_1,I_2,I_3\}$. We have $\nu (\mathfrak {I})=1$ because the $2$-intervals are pairwise intersecting, while $\tau (\mathfrak {I})=2$ because $2$
+points of $L_x\cup L_y$ are required to intersect each of $I_1$, $I_2$, and $I_3$.
+</p><!--l. 241--><p class="indent" >  It is trivial to see that $\tau (\mathfrak {I})\ge \nu (\mathfrak {I})$. In the other direction, building on and improving work of Gy�rf�s and Lehel&#x00A0;[<a
+href="#Xgyarfas:a-helly-type-pr:">5</a>] and
+K�rolyi and Tardos&#x00A0;[<a
+href="#Xkarolyi:on-point-covers:">8</a>], Tardos established the following.
+</p>
+  <div class="newtheorem">
+<!--l. 243--><p class="noindent" ><span class="head">
+<a
+ id="x1-7r3"></a>
+<tspan font-family="ptmb7t" font-size="">Theorem 3 </tspan>(Tardos&#x00A0;[<a
+href="#Xtardos:transversals-of:">14</a>])<tspan font-family="ptmb7t" font-size="">.</tspan>  </span> <tspan font-family="ptmri7t" font-size="">For every system</tspan> $\mathfrak {I}$ <tspan font-family="ptmri7t" font-size="">of</tspan> $2$<tspan font-family="ptmri7t" font-size="">-intervals,</tspan> $\tau (\mathfrak {I})\le 2\nu (\mathfrak {I})$<tspan font-family="ptmri7t" font-size="">.</tspan>
+</p>
+  </div>
+<!--l. 248--><p class="indent" >  Note that the bound in Theorem&#x00A0;<a
+href="#x1-7r3">3<!--tex4ht:ref: thm-2int-transversal --></a> is best possible given the example from Figure&#x00A0;<a
+href="#x1-62">2<!--tex4ht:ref: fig-2-interval --></a>.
+</p><!--l. 250--><p class="indent" >  Henceforth we adopt a geometric viewpoint of permutations where a permutation $\pi $ is identified with its <tspan font-family="ptmri7t" font-size="">plot</tspan>, the
+set of points $\{(i,\pi (i))\}$ in the plane. Given two intervals $X$ and $Y$ of real numbers, we denote by $X\times Y$ the axis-parallel rectangle
+consisting of the points $\{(x,y)\st x\in X, y\in Y\}$. We further define $\pi (X\times Y)$ to be the subpermutation of $\pi $ formed by the entries of $\pi $ whose indices
+lie in $X$ and values lie in $Y$.
+</p><!--l. 252--><p class="indent" >  Given a set of closed axis-parallel rectangles $\mathfrak {R}$ we can naturally associate to it a set $\mathfrak {I}$ of $2$-intervals in the following
+manner. Let $L_x$ and $L_y$ be disjoint copies of the real line. For each $R\in \mathfrak {R}$ we create a $2$-interval $I_R$ such that $I_R\cap L_x$ is the
+projection of $R$ onto the $x$-axis and $I_R\cap L_y$ is the projection of $R$ onto the $y$-axis. The set of three rectangles shown on
+the right of Figure&#x00A0;<a
+href="#x1-62">2<!--tex4ht:ref: fig-2-interval --></a> corresponds in this manner to the set of $2$-intervals shown on the left of the
+figure.
+</p><!--l. 254--><p class="indent" >  We say that two rectangles are <tspan font-family="ptmri7t" font-size="">independent </tspan>if both their $x$- and $y$-axis projections are disjoint. A set of
+rectangles is said to be independent if they are pairwise independent, and we define the <tspan font-family="ptmri7t" font-size="">independence</tspan>
+<tspan font-family="ptmri7t" font-size="">number </tspan>of a set of axis-parallel rectangles to be the size of the largest independent set of rectangles it
+contains.
+</p><!--l. 256--><p class="indent" >  It follows readily that if $\mathfrak {R}$ is a set of closed axis-parallel rectangles and $\mathfrak {I}$ is the corresponding set of $2$-intervals then
+the independence number of $\mathfrak {R}$ is equal to the packing number of $\mathfrak {I}$. Therefore Theorem&#x00A0;<a
+href="#x1-7r3">3<!--tex4ht:ref: thm-2int-transversal --></a> shows that $\mathfrak {I}$ has a
+transversal of size at most $2\nu (\mathfrak {I})$. That is, there is a set of at most $2\nu (\mathfrak {I})$ points of $L_x\cup L_y$ which intersect every $2$-interval in $\mathfrak {I}$. We want
+to convert this transversal of $\mathfrak {I}$ into a set of vertical and horizontal lines that <tspan font-family="ptmri7t" font-size="">slice </tspan>(i.e., intersect the interior) of
+every rectangle in $\mathfrak {R}$, but we must be careful because the transversal is allowed to contain endpoints of $2$-intervals.
+Thus given a transversal $T\subseteq L_x\cup L_y$ we associate to it a set of vertical and horizontal lines $\mathcal {L}_T$ in the following way: if $t\in T$ is from $L_x$
+we associate the two vertical lines $x=t\pm \epsilon $ while if $t\in T$ is from $L_y$ we associate the two horizontal lines $y=t\pm \epsilon $ where $\epsilon >0$ is a small
+constant (depending on $\mathfrak {R}$). These are the dotted lines shown in Figure&#x00A0;<a
+href="#x1-62">2<!--tex4ht:ref: fig-2-interval --></a>. This construction yields the following
+result.
+</p>
+  <div class="newtheorem">
+<!--l. 258--><p class="noindent" ><span class="head">
+<a
+ id="x1-8r4"></a>
+
+
+
+<tspan font-family="ptmb7t" font-size="">Corollary 4.</tspan>  </span> <tspan font-family="ptmri7t" font-size="">If a finite collection</tspan> $\mathfrak {R}$ <tspan font-family="ptmri7t" font-size="">of axis-parallel rectangles has independence number at most</tspan> $m$ <tspan font-family="ptmri7t" font-size="">then</tspan>
+<tspan font-family="ptmri7t" font-size="">there is a collection of</tspan> $4m$ <tspan font-family="ptmri7t" font-size="">vertical and horizontal lines which slice every rectangle in</tspan> $\mathfrak {R}$<tspan font-family="ptmri7t" font-size="">.</tspan>
+</p>
+  </div>
+<!--l. 263--><p class="indent" >  We need one more definition. An <tspan font-family="ptmri7t" font-size="">increasing sequence </tspan>of rectangles is a sequence $R_1,\dots ,R_m$ of independent rectangles
+such that $R_{i+1}$ lies above and to the right of $R_i$ for all $i$. <tspan font-family="ptmri7t" font-size="">Decreasing sequences </tspan>of rectangles are defined analogously. We
+are now ready to prove Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a>.
+</p><!--l. 265--><p class="indent" >  <tspan font-family="ptmb7t" font-size="">Proof of Theorem</tspan><tspan font-family="ptmb7t" font-size="">&#x00A0;</tspan><a
+href="#x1-3r1"><tspan font-family="ptmb7t" font-size="">1</tspan><!--tex4ht:ref: thm-EH-main --></a><tspan font-family="ptmb7t" font-size="">: </tspan>Let $\C $ be a permutation class which does not contain the class of layered permutations or
+the class of colayered permutations. Thus there is an integer $k$ such that $\C $ contains neither $\oplus ^k (k\cdots 21)$ nor $\ominus ^k (12\cdots k)$. Now choose a
+permutation $\pi \in \C $ and let $\mathfrak {R}_\pi $ denote the collection of all axis-parallel rectangles $R$ such that $\pi (R)$ contains both $k\cdots 21$
+and $12\cdots k$. If $\mathfrak {R}_\pi $ were to contain an independent set of $(k-1)^2+1$ rectangles then the Erd&#x0151;s&#8211;Szekeres Theorem would
+imply that $\mathfrak {R}_\pi $ contained an increasing or decreasing sequence of $k$ rectangles, but that would imply
+that $\pi $ (and hence also $\C $) contained $\oplus ^k (k\cdots 21)$ or $\ominus ^k (12\cdots k)$, a contradiction. Thus the independence number of $\mathfrak {R}_\pi $ is at most
+$(k-1)^2$.
+</p><!--l. 268--><p class="indent" >  Corollary&#x00A0;<a
+href="#x1-8r4">4<!--tex4ht:ref: cor-2int-slice --></a> now shows that there is a collection of at most $4(k-1)^2$ vertical and horizontal lines which slice every
+rectangle in $\mathfrak {R}_\pi $. These lines divide the plot of $\pi $ into a $t\times u$ grid of unsliced regions for integers $t$ and $u$ satisfying $t+u\le 4(k-1)^2+2$. Moreover,
+each unsliced region avoids either $k\cdots 21$ or $12\cdots k$ and thus can be expressed as the union of $k-1$ increasing or decreasing
+permutations by Proposition&#x00A0;<a
+href="#x1-4r2">2<!--tex4ht:ref: prop-EH-mono --></a>. All of the entries of $\pi $ in regions avoiding $k\cdots 21$ can be expressed as the union of at most $(t+u-1)(k-1)\le 4k^3$
+increasing permutations while the entries lying in regions avoiding $12\cdots k$ can be expressed as the union of the
+same number of decreasing permutations. Therefore $\pi $ itself can be expressed as the union of at most $8k^3$
+monotone permutations and thus $\pi $ must contain a monotone subsequence of length at least $n/8k^3$, proving the
+theorem.                                                                                                                                                       __
+</p><!--l. 271--><p class="indent" >  In the language of generalized grid classes introduced in Vatter&#x00A0;[<a
+href="#Xvatter:small-permutati:">16</a>], the proof of Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> shows that all
+permutation classes that do not contain the layered or colayered permutations are $\Av (k\cdots 21)\cup \Av (12\cdots k)$-griddable. In fact, this follows
+from [<a
+href="#Xvatter:small-permutati:">16</a>, Theorem 3.1], though the bounds given in the proof above are better than that theorem
+gives.
+</p><!--l. 273--><p class="indent" >  Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> can also be interpreted in the context of splittability, which has recently been studied in
+general by Jel�nek and Valtr&#x00A0;[<a
+href="#Xjelinek:splittings-and-:">6</a>]. Given two permutation classes $\C $ and $\D $, their <tspan font-family="ptmri7t" font-size="">merge</tspan>, $\C \odot \D $, consists of those
+permutations whose entries can be partitioned into two subsequences, one order isomorphic to a permutation
+in $\C $ and the other order isomorphic to a permutation in $\D $. Thus Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> shows that every class
+which does not contain the layered or colayered classes can be expressed as the merge of a finite
+number of monotone classes (i.e., classes of the form $\Av (21)$ or $\Av (12)$). Note that the converse&#8212;if a class does
+contain all layered or colayered permutations then it is not the merge of a finite number of monotone
+classes&#8212;holds trivially. The proof of Theorem&#x00A0;<a
+href="#x1-3r1">1<!--tex4ht:ref: thm-EH-main --></a> also gives a bound on how many monotone classes are
+required:
+</p>
+  <div class="newtheorem">
+<!--l. 275--><p class="noindent" ><span class="head">
+<a
+ id="x1-9r5"></a>
+
+
+
+<tspan font-family="ptmb7t" font-size="">Corollary 5.</tspan>  </span> <tspan font-family="ptmri7t" font-size="">If a permutation class avoids both</tspan> $\oplus ^k (k\cdots 21)$ <tspan font-family="ptmri7t" font-size="">and</tspan> $\ominus ^k (12\cdots k)$ <tspan font-family="ptmri7t" font-size="">then it can be expressed as the merge of at most</tspan> $8k^3$
+<tspan font-family="ptmri7t" font-size="">monotone classes.</tspan>
+</p>
+  </div>
+  <h3 class="likesectionHead"><a
+ id="x1-1000"></a>References</h3>
+<!--l. 288--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xchudnovsky:the-erdos--hajn:"></a>[1] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>M.&#x00A0;Chudnovsky.   The Erd&#x0151;s&#8211;Hajnal conjecture&#8212;a survey.   <tspan font-family="ptmri7t" font-size="">J. Graph Theory</tspan>, 75(2):178&#8211;190,
+    2014.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xerdos:ramsey-type-the:"></a>[2] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>P.&#x00A0;Erd&#x0151;s and A.&#x00A0;Hajnal. Ramsey-type theorems. <tspan font-family="ptmri7t" font-size="">Discrete Appl. Math.</tspan>, 25(1-2):37&#8211;52, 1989.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xerdos:a-combinatorial:"></a>[3] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>P.&#x00A0;Erd&#x0151;s and G.&#x00A0;Szekeres.  A combinatorial problem in geometry.  <tspan font-family="ptmri7t" font-size="">Compos. Math.</tspan>, 2:463&#8211;470,
+    1935.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xgreene:an-extension-of:"></a>[4] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>C.&#x00A0;Greene. An extension of Schensted&#8217;s theorem. <tspan font-family="ptmri7t" font-size="">Advances in Math.</tspan>, 14:254&#8211;265, 1974.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xgyarfas:a-helly-type-pr:"></a>[5] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>A.&#x00A0;Gy�rf�s and J.&#x00A0;Lehel. A Helly-type problem in trees. In P.&#x00A0;Erd&#x0151;s, A.&#x00A0;R�nyi, and V.&#x00A0;T. Sos,
+    editors, <tspan font-family="ptmri7t" font-size="">Combinatorial Theory and its Applications, II (Proc. Colloq., Balatonf</tspan><tspan font-family="ptmri7t" font-size="">�red, 1969)</tspan>, pages
+    571&#8211;584. North-Holland, Amsterdam, 1970.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xjelinek:splittings-and-:"></a>[6] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>V.&#x00A0;Jel�nek and P.&#x00A0;Valtr.  Splittings and Ramsey properties of permutation classes.  <tspan font-family="ptmri7t" font-size="">Adv. in Appl.</tspan>
+    <tspan font-family="ptmri7t" font-size="">Math.</tspan>, 63:41&#8211;67, 2015.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xkaiser:transversals-of:"></a>[7] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>T.&#x00A0;Kaiser. Transversals of $d$-intervals. <tspan font-family="ptmri7t" font-size="">Discrete Comput. Geom.</tspan>, 18(2):195&#8211;203, 1997.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xkarolyi:on-point-covers:"></a>[8] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>G.&#x00A0;K�rolyi and G.&#x00A0;Tardos.  On point covers of multiple intervals and axis-parallel rectangles.
+    <tspan font-family="ptmri7t" font-size="">Combinatorica</tspan>, 16(2):213&#8211;222, 1996.
+
+
+
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <a
+ id="Xkim:on-increasing-s:"></a>[9] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>J.&#x00A0;H. Kim.   On increasing subsequences of random permutations.   <tspan font-family="ptmri7t" font-size="">J. Combin. Theory Ser. A</tspan>,
+    76(1):148&#8211;155, 1996.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xpittel:limit-shapes-fo:"></a>[10] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>B.&#x00A0;Pittel and D.&#x00A0;Romik.  Limit shapes for random square Young tableaux.  <tspan font-family="ptmri7t" font-size="">Adv. in Appl. Math.</tspan>,
+    38(2):164&#8211;209, 2007.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xromik:permutations-wi:"></a>[11] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>D.&#x00A0;Romik.       Permutations   with   short   monotone   subsequences.       <tspan font-family="ptmri7t" font-size="">Adv.   in   Appl.   Math.</tspan>,
+    37(4):501&#8211;510, 2006.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xstanley:solution-to-pro:5641"></a>[12] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>R.&#x00A0;P. Stanley. Solution to problem 5641. <tspan font-family="ptmri7t" font-size="">Amer. Math. Monthly</tspan>, 76(10):1153, 1969.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xsu:on-increasing-s:"></a>[13] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>Z.&#x00A0;G. Su.  On increasing subsequences of minimal Erd&#x0151;s&#8211;Szekeres permutations.  <tspan font-family="ptmri7t" font-size="">Acta Math.</tspan>
+    <tspan font-family="ptmri7t" font-size="">Sin. (Engl. Ser.)</tspan>, 27(8):1573&#8211;1580, 2011.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xtardos:transversals-of:"></a>[14] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>G.&#x00A0;Tardos.  Transversals of $2$-intervals, a topological approach.  <tspan font-family="ptmri7t" font-size="">Combinatorica</tspan>, 15(1):123&#8211;134,
+    1995.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xsloane:the-on-line-enc:"></a>[15] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>The    On-line    Encyclopedia    of    Integer    Sequences.           Published    electronically    at
+    <tspan font-family="pcrr7t" font-size="">http://oeis.org/</tspan>.
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<a
+ id="Xvatter:small-permutati:"></a>[16] <span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span>V.&#x00A0;Vatter. Small permutation classes. <tspan font-family="ptmri7t" font-size="">Proc. Lond. Math. Soc. (3)</tspan>, 103:879&#8211;921, 2011.
+</p>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

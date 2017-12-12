@@ -1,0 +1,86 @@
+\def\cprime{$'$}
+\begin{thebibliography}{10}
+
+\bibitem{chudnovsky:the-erdos--hajn:}
+M.~Chudnovsky.
+\newblock The {E}rd{\H{o}}s--{H}ajnal conjecture---a survey.
+\newblock {\em J. Graph Theory}, 75(2):178--190, 2014.
+
+\bibitem{erdos:ramsey-type-the:}
+P.~Erd{\H{o}}s and A.~Hajnal.
+\newblock Ramsey-type theorems.
+\newblock {\em Discrete Appl. Math.}, 25(1-2):37--52, 1989.
+
+\bibitem{erdos:a-combinatorial:}
+P.~Erd{\H{o}}s and G.~Szekeres.
+\newblock A combinatorial problem in geometry.
+\newblock {\em Compos. Math.}, 2:463--470, 1935.
+
+\bibitem{greene:an-extension-of:}
+C.~Greene.
+\newblock An extension of {S}chensted's theorem.
+\newblock {\em Advances in Math.}, 14:254--265, 1974.
+
+\bibitem{gyarfas:a-helly-type-pr:}
+A.~Gy{\'a}rf{\'a}s and J.~Lehel.
+\newblock A {H}elly-type problem in trees.
+\newblock In P.~Erd{\H{o}}s, A.~R{\'e}nyi, and V.~T. Sos, editors, {\em
+  Combinatorial Theory and its Applications, {II} ({P}roc. {C}olloq.,
+  {B}alatonf\"ured, 1969)}, pages 571--584. North-Holland, Amsterdam, 1970.
+
+\bibitem{jelinek:splittings-and-:}
+V.~Jel{\'{\i}}nek and P.~Valtr.
+\newblock Splittings and {R}amsey properties of permutation classes.
+\newblock {\em Adv. in Appl. Math.}, 63:41--67, 2015.
+
+\bibitem{kaiser:transversals-of:}
+T.~Kaiser.
+\newblock Transversals of {$d$}-intervals.
+\newblock {\em Discrete Comput. Geom.}, 18(2):195--203, 1997.
+
+\bibitem{karolyi:on-point-covers:}
+G.~K{\'a}rolyi and G.~Tardos.
+\newblock On point covers of multiple intervals and axis-parallel rectangles.
+\newblock {\em Combinatorica}, 16(2):213--222, 1996.
+
+\bibitem{kim:on-increasing-s:}
+J.~H. Kim.
+\newblock On increasing subsequences of random permutations.
+\newblock {\em J. Combin. Theory Ser. A}, 76(1):148--155, 1996.
+
+\bibitem{pittel:limit-shapes-fo:}
+B.~Pittel and D.~Romik.
+\newblock Limit shapes for random square {Y}oung tableaux.
+\newblock {\em Adv. in Appl. Math.}, 38(2):164--209, 2007.
+
+\bibitem{romik:permutations-wi:}
+D.~Romik.
+\newblock Permutations with short monotone subsequences.
+\newblock {\em Adv. in Appl. Math.}, 37(4):501--510, 2006.
+
+\bibitem{stanley:solution-to-pro:5641}
+R.~P. Stanley.
+\newblock Solution to problem 5641.
+\newblock {\em Amer. Math. Monthly}, 76(10):1153, 1969.
+
+\bibitem{su:on-increasing-s:}
+Z.~G. Su.
+\newblock On increasing subsequences of minimal {E}rd{\H{o}}s--{S}zekeres
+  permutations.
+\newblock {\em Acta Math. Sin. (Engl. Ser.)}, 27(8):1573--1580, 2011.
+
+\bibitem{tardos:transversals-of:}
+G.~Tardos.
+\newblock Transversals of {$2$}-intervals, a topological approach.
+\newblock {\em Combinatorica}, 15(1):123--134, 1995.
+
+\bibitem{sloane:the-on-line-enc:}
+{The {O}n-line {E}ncyclopedia of {I}nteger {S}equences}.
+\newblock {P}ublished electronically at \texttt{http://oeis.org/}.
+
+\bibitem{vatter:small-permutati:}
+V.~Vatter.
+\newblock Small permutation classes.
+\newblock {\em Proc. Lond. Math. Soc. (3)}, 103:879--921, 2011.
+
+\end{thebibliography}

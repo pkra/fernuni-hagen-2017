@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="pkra" />
+  <meta name="author" content="François G. Dorais" />
+  <title>IP sets and games</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">IP sets and games</h1>
+<p class="author">pkra</p>
+<p class="author">François G. Dorais</p>
+</header>
+<p>Let’s pool our notes.</p>
+<h1 id="classic-definitions">Classic definitions</h1>
+<h2 id="classical-notions">Classical notions</h2>
+<p>We work in the partial semigroup <span class="math inline">\(\mathbb{F} = \lbrack\omega\rbrack^{&lt; \omega}\backslash\{\varnothing\}\)</span>.</p>
+<p>The partial operation is disjoint union:</p>
+<p><span class="math display">\[s \cdot t = s \cup t\text{\ iff\ }s \cap t = \varnothing.\]</span></p>
+<p>That is, when we write <span class="math inline">\(s^{- 1}X = \{ t:s \cdot t \in X\}\)</span> this means <span class="math inline">\(\{ t:s \cap t = \varnothing,s \cdot t \in X\}\)</span>.</p>
+<p>In other words: when we write <span class="math inline">\(s \cdot t\)</span> or <span class="math inline">\(FP(\mathbf{s})\)</span> we always assume the product is defined (and any conditional statement where this occurs is restricted to the defined case).</p>
+<p>Since we are interested in finite products, all sequences in <span class="math inline">\(\mathbb{F}\)</span> are considered to be pairwise disjoint.</p>
+<p>Note that for historic reasons we will sometimes consider the partial operation of ordered unions, i.e., we restrict the union operation not just to <span class="math inline">\(s \cap t = \varnothing\)</span>, but require <span class="math inline">\(\max(s) &lt; \min(t)\)</span>.</p>
+<h4 id="definition-ip-set">Definition <span class="math inline">\(IP\)</span>-set</h4>
+<p><span class="math inline">\(X \subseteq \mathbb{F}\)</span> is an <span class="math inline">\(IP\)</span>-set if there exists <span class="math inline">\(\mathbf{s} = (s_{i})_{i \in \omega}\)</span> (pairwise disjoint) such that <span class="math inline">\(FP(\mathbf{s}) \subseteq X\)</span>.</p>
+<p>Note: <span class="math inline">\(IP\)</span>-sets are those that contain infinite <span class="math inline">\(FP\)</span>-sets. (the “length” of an <span class="math inline">\(FP\)</span>-set always describes the length of the sequence of generators).</p>
+<p>The notion of <span class="math inline">\(IP_{\alpha}\)</span>-set that we will study has been designed as a transfinite approximation of the notion of <span class="math inline">\(IP\)</span>-set.</p>
+<h2 id="defining-ip_alpha-sets">Defining <span class="math inline">\(IP_{\alpha}\)</span>-sets</h2>
+<p>There are three definitions for <span class="math inline">\(IP_{\alpha}\)</span>-sets. We will show later that they are equivalent. These are all from Beiglboeck-Towsner</p>
+<h4 id="the-original-inductive-definition">The original inductive definition</h4>
+<p>We can define <span class="math inline">\(IP_{\alpha}\)</span>-sets inductively for <span class="math inline">\(\alpha \in ON\)</span> (important: we’ll see that this hierarchy stops at <span class="math inline">\(\omega_{1}\)</span>, i.e., if <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span> it is <span class="math inline">\(IP_{\alpha}\)</span> for all <span class="math inline">\(\alpha \in ON\)</span>).</p>
+<ul>
+<li><p>Every subset of <span class="math inline">\(\mathbb{F}\)</span> is <span class="math inline">\(IP_{0}\)</span>,</p></li>
+<li><p>the set <span class="math inline">\(A\)</span> is <span class="math inline">\(IP_{\alpha + 1}\)</span> iff <span class="math inline">\((\exists a \in A)a^{- 1}A \cap A\)</span> is <span class="math inline">\(IP_{\alpha}\)</span></p></li>
+<li><p>in case of limit ordinal <span class="math inline">\(\lambda\)</span> the set <span class="math inline">\(A\)</span> is <span class="math inline">\(IP_{\lambda}\)</span> iff it is <span class="math inline">\(IP_{\alpha}\)</span> for all <span class="math inline">\(\alpha &lt; \lambda\)</span></p></li>
+</ul>
+<p>Some easy things to check:</p>
+<ul>
+<li><p>Every non-empty set is <span class="math inline">\(IP_{1}\)</span>.</p></li>
+<li><p>a set <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{k}\)</span> (<span class="math inline">\(k \in \omega\)</span>) if and only if there exists a sequence <span class="math inline">\(\mathbf{s} = (s_{0},\ldots,s_{k - 1})\)</span> such that <span class="math inline">\(FU(\mathbf{s}) \subseteq X\)</span> Exercise! Check: <span class="math inline">\(\bigcup_{z \in FU(\mathbf{s})}^{}z^{- 1}X \cap X = s_{k}^{- 1}X_{k} \cap X_{k}\)</span> where <span class="math inline">\(X_{k}\)</span> is inductively defined by <span class="math inline">\(X_{0} = X\)</span>, <span class="math inline">\(X_{j + 1} = s_{j}^{- 1}X_{j} \cap X_{j}\)</span>.</p></li>
+<li><p>In particular, an <span class="math inline">\(IP_{\omega}\)</span> set can be characterized by having arbitrarily “long” finite FU-sets.</p></li>
+</ul>
+<h4 id="definition-using-the-game-g_alphax">Definition using the Game <span class="math inline">\(G_{\alpha}(X)\)</span></h4>
+<p>Define the game <span class="math inline">\(G_{\alpha}(X)\)</span> for <span class="math inline">\(X \subseteq \mathbb{F}\)</span>.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>I</td>
+<td></td>
+<td><span class="math inline">\(x_{\alpha_{0}} \in X\)</span></td>
+<td></td>
+<td><span class="math inline">\(x_{\alpha_{1}} \in X\)</span></td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td>II</td>
+<td><span class="math inline">\(\alpha_{0} &lt; \alpha\)</span></td>
+<td></td>
+<td><span class="math inline">\(\alpha_{1} &lt; \alpha_{0}\)</span></td>
+<td></td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>I.e., II plays decreasing sequences of ordinals and I plays sequences in <span class="math inline">\(X\)</span>. The game ends when II cannot continue.</p>
+<p>Player I wins if <span class="math inline">\(\mathbf{x} = (x_{\alpha_{i}})\)</span> is a sequence of pairwise disjoint sets and <span class="math inline">\(FU(\mathbf{x}) \subseteq X\)</span>.</p>
+<p>We will show that a set <span class="math inline">\(A\)</span> is <span class="math inline">\(IP_{\alpha}\)</span> iff I has a winning strategy in the game <span class="math inline">\(G_{\alpha}(A)\)</span>.</p>
+<h4 id="definition-using-trees">Definition using Trees</h4>
+<p>In the Beiglboeck-Towsner paper they introduce a notion of tree which is not a tree in the usual sense. This has to do with the messiness of addition on natural numbers. Since we circumvent this mess, we can actually consider trees in the classical (set theoretic) sense.</p>
+<ul>
+<li><p>A tree <span class="math inline">\(T\)</span> in our setting is always a subtree of <span class="math inline">\(\mathbb{F}_{\dot{\cup}}^{&lt; \omega}\)</span>, the disjoint, finite sequences in <span class="math inline">\(\mathbb{F}\)</span> (with or without the root <span class="math inline">\(\varnothing\)</span> – it’s not relevant because we do not consider empty unions).</p></li>
+<li><p>The partial order on our trees is <span class="math inline">\(\subseteq\)</span>, but to avoid confusion we denote it by <span class="math inline">\(\prec\)</span>.</p></li>
+<li><p>If <span class="math inline">\(T\)</span> is well founded in the reverse order (i.e., does not have an infinite branch), we can define the usual (countable) rank on <span class="math inline">\(T\)</span> (short: leafs have rank <span class="math inline">\(0\)</span> and everything else the sup of (rank+1) of their successors).</p></li>
+<li><p>We will be interested in <span class="math inline">\(FP(T): = \bigcup_{\mathbf{s} \in T}^{}FP(\mathbf{s})\)</span>. For a colouring of <span class="math inline">\(FP(T)\)</span>, we say that <span class="math inline">\(T\)</span> is monochromatic if <span class="math inline">\(FP(T)\)</span> is.</p></li>
+<li><p>Given any set <span class="math inline">\(X \subseteq \mathbb{F}\)</span>, we define the (possibly empty) tree <span class="math inline">\(T_{X}: = \{\mathbf{s}:FU(\mathbf{s}) \subseteq X\}\)</span>.</p></li>
+</ul>
+<p>We will show that a set <span class="math inline">\(A\)</span> is <span class="math inline">\(IP_{\alpha}\)</span> iff <span class="math inline">\(T_{A}\)</span> has rank <span class="math inline">\(\geq \alpha\)</span>.</p>
+<h1 id="basic-observations">Basic Observations</h1>
+<h2 id="the-equivalence-of-the-three-definitions">The equivalence of the three definitions</h2>
+<h4 id="theorem">Theorem</h4>
+<p>TFAE</p>
+<ol type="1">
+<li><p><span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\alpha}\)</span></p></li>
+<li><p>Player I has a winning strategy in <span class="math inline">\(G_{\alpha}(X)\)</span></p></li>
+<li><p><span class="math inline">\(T_{X}\)</span> has rank <span class="math inline">\(\geq \alpha\)</span></p></li>
+</ol>
+<h4 id="proof">Proof</h4>
+<ul>
+<li><p>1) <span class="math inline">\(\Leftrightarrow\)</span> 2)</p>
+<ul>
+<li><p>By induction (<span class="math inline">\(\alpha = 0\)</span> is sort of meaningless for the game, so we skip that)</p></li>
+<li><p><span class="math inline">\(\alpha = 1\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{1}\)</span> iff <span class="math inline">\(X \neq \varnothing\)</span> by the exercise</p></li>
+<li><p>II has only one move in <span class="math inline">\(G_{1}(X)\)</span>, namely <span class="math inline">\(0\)</span> and the game ends.</p></li>
+<li><p>So I has a winning strategy iff <span class="math inline">\(X\)</span> is non-empty – as desired.</p></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha \rightarrow \alpha + 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\alpha + 1}\)</span> iff <span class="math inline">\((\exists x \in X)x^{- 1}X \cap X\)</span> is <span class="math inline">\(IP_{\alpha}\)</span></p></li>
+<li><p>II has an optimal first move in <span class="math inline">\(G_{\alpha + 1}\)</span>, namely <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>If <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\alpha + 1}\)</span>, we can describe a strategy for player <span class="math inline">\(I\)</span>.</p>
+<ul>
+<li><p>I plays <span class="math inline">\(x\)</span> if II plays <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Otherwise, I plays according to the strategy we have (by induction hypothesis) for <span class="math inline">\(x^{- 1}X \cap X\)</span>.</p></li>
+<li><p>Check that this works.</p></li>
+</ul></li>
+<li><p>If I has a winning strategy, then we can find <span class="math inline">\(x \in X\)</span> with <span class="math inline">\(x^{- 1}X \cap X\)</span> being <span class="math inline">\(IP_{\alpha}\)</span>.</p>
+<ul>
+<li><p>Let <span class="math inline">\(x\)</span> be reaction to II playing <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Check that the strategy implies that <span class="math inline">\(x^{- 1}X \cap X\)</span> is <span class="math inline">\(IP_{\alpha}\)</span>.</p></li>
+</ul></li>
+<li><p>For <span class="math inline">\(\lim\lambda\)</span> the equivalence follows easily by induction hypothesis.</p></li>
+</ul></li>
+</ul></li>
+<li><p>2) <span class="math inline">\(\Rightarrow\)</span> 3)</p>
+<ul>
+<li><p>If player I has a winning strategy, then the results of the game according to the strategy form a tree of height <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>This tree is a subtree of <span class="math inline">\(T_{X}\)</span>, hence <span class="math inline">\(T_{X}\)</span> has at least rank <span class="math inline">\(\alpha\)</span>.</p></li>
+</ul></li>
+<li><p>3) <span class="math inline">\(\Rightarrow\)</span> 2)</p>
+<ul>
+<li><p>If <span class="math inline">\(T_{X}\)</span> has at least rank <span class="math inline">\(\alpha\)</span>, we can describe a strategy for player I as follows.</p></li>
+<li><p>II starts with some <span class="math inline">\(\alpha_{0} &lt; \alpha\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(T_{X}\)</span> has at least rank <span class="math inline">\(\alpha\)</span>, Player I can find an element <span class="math inline">\(\mathbf{s}^{0} \in T\)</span> of rank <span class="math inline">\(\alpha_{0}\)</span>.</p></li>
+<li><p>But <span class="math inline">\(\mathbf{s}^{0}\)</span> is a sequence in <span class="math inline">\(X\)</span>; pick any <span class="math inline">\(s_{i}\)</span> (in fact, any <span class="math inline">\(x \in FP(\mathbf{s})\)</span> will do; but of course, <span class="math inline">\(\mathbf{s}\)</span> might have length 1).</p></li>
+<li><p>Inductively at move <span class="math inline">\(i\)</span>, player I can respond to <span class="math inline">\(\alpha_{i}\)</span> by picking a successor of <span class="math inline">\(\mathbf{s}^{i} \prec \mathbf{s}^{i - 1}\)</span> with <span class="math inline">\(rk(\mathbf{s}^{i}) \geq \alpha_{i}\)</span></p></li>
+<li><p>Remember that by induction hypothesis, <span class="math inline">\(rk(\mathbf{s}^{i - 1}) \geq \alpha_{i - 1} &gt; \alpha_{i}\)</span>.</p></li>
+<li><p>Then I plays an element from <span class="math inline">\(s^{i}\backslash s^{i - 1}\)</span>.</p></li>
+<li><p>Clearly, I will win the game since even <span class="math inline">\(FP(\mathbf{s}^{\mathbf{0}}\mathbf{\circ}\mathbf{\ldots}) \subseteq X\)</span>.</p></li>
+</ul></li>
+</ul>
+<h2 id="the-ip_alpha-hierarchy-stops-at-omega_1.">The <span class="math inline">\(IP_{\alpha}\)</span> hierarchy stops at <span class="math inline">\(\omega_{1}\)</span>.</h2>
+<p>In their paper, Mathias and Henry prove that <span class="math inline">\(IP_{\alpha}\)</span> is really an approximation of <span class="math inline">\(IP\)</span>-set.</p>
+<h4 id="theorem-beiglboeck-towsner">Theorem (Beiglboeck-Towsner)</h4>
+<p><span class="math inline">\(X\)</span> is an <span class="math inline">\(IP\)</span>-set iff <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span>.</p>
+<h4 id="proof-1">Proof</h4>
+<ul>
+<li><p>The forward direction is easy – play an infinite sequence, you’ll always win the <span class="math inline">\(G_{\alpha}\)</span> game.</p></li>
+<li><p>The reverse follows from: if <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega + 1}\)</span>, then there exists <span class="math inline">\(x \in X\)</span> such that <span class="math inline">\(x^{- 1}X \cap X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span>. With this in hand, you can simply follow the usual proofs of Hindman’s Theorem.</p>
+<ul>
+<li><p>Otherwise, every <span class="math inline">\(x \in X\)</span> is not so.</p></li>
+<li><p>Hence there is a countable <span class="math inline">\(\alpha_{x}\)</span> such that <span class="math inline">\(x^{- 1}X \cap X\)</span> is not <span class="math inline">\(IP_{\alpha_{x} + 1}\)</span>.</p></li>
+<li><p>But <span class="math inline">\(X\)</span> is countable, <span class="math inline">\(\omega_{1}\)</span> is a regular ordinal, hence <span class="math inline">\(\lim_{x \in X}\alpha_{x} = :\beta &lt; \beta + 1 &lt; \omega_{1}\)</span>.</p></li>
+<li><p>But then <span class="math inline">\(X\)</span> is not <span class="math inline">\(IP_{\beta + 1}\)</span> – a contradiction.</p></li>
+</ul></li>
+</ul>
+<h4 id="corollary">Corollary</h4>
+<p>In particular, <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span>, then <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\alpha}\)</span> for all <span class="math inline">\(\alpha\)</span>.</p>
+<h4 id="proof-2">Proof</h4>
+<ul>
+<li><p>In the proof we have seen <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span> iff <span class="math inline">\((\exists x \in X)x^{- 1}X \cap X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span></p></li>
+<li><p>In other words, <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1}}\)</span> iff <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega_{1} + 1}\)</span></p></li>
+<li><p>The claim follows by an easy induction.</p></li>
+</ul>
+<h2 id="some-more-stuff">Some more stuff</h2>
+<p>Just to jot them down somewhere, we should mention:</p>
+<p>We will almost always assume a slightly different meaning for <span class="math inline">\(IP_{\alpha}\)</span> set. Namely, in most proofs, <span class="math inline">\(IP_{\alpha}\)</span> is to imply ’not <span class="math inline">\(IP_{\alpha + 1}\)</span>-set’.</p>
+<h1 id="canonical-form">Canonical form</h1>
+<p>For certain <span class="math inline">\(\alpha\)</span>, we can describe a canonical form of <span class="math inline">\(IP_{\alpha}\)</span>-sets.</p>
+<p>Throughout this section <span class="math inline">\(IP_{\alpha}\)</span> means ’not <span class="math inline">\(IP_{\alpha + 1}\)</span>’.</p>
+<ul>
+<li><p><span class="math inline">\(IP_{k}\)</span>-sets (for some <span class="math inline">\(k &lt; \omega\)</span>) are essentially just <span class="math inline">\(FP(\mathbf{s})\)</span> for <span class="math inline">\(\mathbf{s}\)</span> of lenght <span class="math inline">\(k\)</span>. In particular, the tree <span class="math inline">\(T_{X}\)</span> is just one branch of length <span class="math inline">\(k\)</span>.</p>
+<ul>
+<li><p>It was an exercise in the Basics to show that any <span class="math inline">\(IP_{k}\)</span>-set contains such an FP-set.</p></li>
+<li><p>Clearly, such an FP-set is <span class="math inline">\(IP_{k}\)</span> (the sequence gives a perfectly good strategy for <span class="math inline">\(k\)</span>-many moves)</p></li>
+</ul></li>
+<li><p><span class="math inline">\(IP_{\omega}\)</span> sets are essentially just a disjoint collection of FP-sets of length <span class="math inline">\(k\)</span> for all <span class="math inline">\(k \in \omega\)</span>. In particular, the tree <span class="math inline">\(T_{X}\)</span> consists of countably many “disjoint” branches of increasing length.</p>
+<ul>
+<li><p>By definition to be <span class="math inline">\(IP_{\omega}\)</span> means to include arbitrarily large <span class="math inline">\(IP_{k}\)</span>-sets.</p></li>
+<li><p>By the above, these are just FP-sets of length <span class="math inline">\(k\)</span>.</p></li>
+<li><p>Inductively, pick FP-sets <span class="math inline">\(FP(\mathbf{s}^{k})\)</span> which come in an ordered fashion, i.e, the generators <span class="math inline">\(\max(\bigcup_{i &lt; k}^{}s_{i}^{k}) &lt; \min(\bigcup_{i &lt; k + 1}^{}s_{i}^{k + 1}\)</span>.</p>
+<ul>
+<li><p>Pick some <span class="math inline">\(\mathbf{s}^{0}\)</span>.</p></li>
+<li><p>Inductively having picked <span class="math inline">\(\mathbf{s}^{k}\)</span> as ordered as desired, pick <span class="math inline">\(\mathbf{s}^{\mathbf{k}\mathbf{+}\mathbf{1}}\)</span> by first picking an FP-set of length <span class="math inline">\(k + 1 + \max(\bigcup_{i &lt; k}^{}s_{i}^{l})\)</span>.</p></li>
+<li><p>Since the generators of that FP-set are pairwise disjoint, the last <span class="math inline">\(k + 1\)</span> must have a minimum above <span class="math inline">\(\max(\bigcup_{i &lt; k}^{}s_{i}^{l})\)</span> – take those elements to form <span class="math inline">\(\mathbf{s}^{k + 1}\)</span>.</p></li>
+<li><p>Check that this works.</p></li>
+</ul></li>
+</ul></li>
+<li><p>The canonical form of <span class="math inline">\(IP_{\omega \cdot n}\)</span>-sets (for <span class="math inline">\(n \in \omega\)</span>)</p>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> be <span class="math inline">\(IP_{\omega \cdot n}\)</span>. We thin out <span class="math inline">\(X\)</span> inductively.</p></li>
+<li><p>Consider <span class="math inline">\(X_{0} = \{ x \in X:x^{- 1}X \cap X\text{\ is\ at\ least\ }IP_{\omega \cdot (n - 1)}\}\)</span>.</p></li>
+<li><p>This is an <span class="math inline">\(IP_{\omega}\)</span>-set, so thin it out to its canonical form of “disjoint <span class="math inline">\(FP_{k}\)</span>-sets”</p></li>
+<li><p>In other words, wlog each <span class="math inline">\(x \in X_{0}\)</span> has a unique maximal sequence <span class="math inline">\(\mathbf{s}_{x}\)</span> such that <span class="math inline">\(x \in FU(\mathbf{s}_{x}) \subseteq X_{0}\)</span></p></li>
+<li><p>Now replace <span class="math inline">\(x^{- 1}X \cap X\)</span> with <span class="math inline">\(\bigcap_{z \in FU(\mathbf{s}_{x})}^{}{}\)</span>.</p></li>
+<li><p>These sets are precisely <span class="math inline">\(IP_{\omega \cdot (n - 1)}\)</span>.</p></li>
+<li><p>Continue this process!</p></li>
+<li><p>In other words, <span class="math inline">\(T_{X}\)</span> can be pruned to look as follows:</p>
+<ul>
+<li><p>First there’s a tree as for <span class="math inline">\(IP_{\omega}\)</span> sets – longer and longer branches.</p></li>
+<li><p>Each of its leafs then has a tree as for <span class="math inline">\(IP_{\omega}\)</span>-sets.</p>
+<ul>
+<li><p>And so forth, a total of n-times.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>We will see later: <span class="math inline">\(IP_{\omega^{2}}\)</span>-sets are the pairwise disjoint union of <span class="math inline">\(IP_{\omega \cdot n}\)</span>-sets.</p>
+<p>And of course: <span class="math inline">\(IP_{\omega_{1}}\)</span>-sets have the canonical form: <span class="math inline">\(FU(\mathbf{s})\)</span> for an infinite <span class="math inline">\(\mathbf{s}\)</span>.</p>
+<h1 id="ip_omega2-is-partition-regular"><span class="math inline">\(IP_{\omega^{2}}\)</span> is partition regular</h1>
+<h2 id="the-folkman-rado-sanders-theorem"> The Folkman-Rado-Sanders Theorem</h2>
+<p>Recall this classical result.</p>
+<h4 id="theorem-folkman-rado-and-sanders-independently">Theorem (Folkman, Rado and Sanders independently)</h4>
+<p>For every <span class="math inline">\(n \in \omega\)</span> and any number of colors <span class="math inline">\(r \in \omega\)</span> there exists the Folkman number <span class="math inline">\(F_{r}(n) \in \omega\)</span> such that: If <span class="math inline">\(\mathbf{s}\)</span> has length <span class="math inline">\(F_{r}(n)\)</span> then for every coloring <span class="math inline">\(c:FP(\mathbf{s}) \rightarrow r\)</span>, there exists homogeneous <span class="math inline">\(\mathbf{t}\)</span> of length <span class="math inline">\(n\)</span> (i.e., <span class="math inline">\(c\)</span> restricted to <span class="math inline">\(FP(\mathbf{t})\)</span> is constant). In our terminology: whenever we <span class="math inline">\(r\)</span>-color an <span class="math inline">\(IP_{F_{r}(n)}\)</span>-set, we find a homogeneous <span class="math inline">\(IP_{n}\)</span> set.</p>
+<p>In their paper, Beiglboeck and Towsner give an extension of this theorem to <span class="math inline">\(IP_{\alpha}\)</span>-sets. We’ll discuss this later.</p>
+<h2 id="ip_omega-sets-are-partition-regular"> <span class="math inline">\(IP_{\omega}\)</span> sets are partition regular</h2>
+<p>An immediate consequence of the Folkman-Rado-Sanders Theorem can be phrased in our setting as follows.</p>
+<h4 id="corollary-1">Corollary</h4>
+<p><span class="math inline">\(IP_{\omega}\)</span> sets are partition regular.</p>
+<h4 id="proof-3">Proof</h4>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> be <span class="math inline">\(IP_{\omega}\)</span>, i.e., <span class="math inline">\(IP_{k}\)</span> for all <span class="math inline">\(k \in \omega\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(c:X \rightarrow r\)</span> and <span class="math inline">\(r\)</span>-coloring of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>By Folkman-Rado-Sanders, we find homogeneous <span class="math inline">\(IP_{k}\)</span>-sets for arbitrarily large <span class="math inline">\(k \in \omega\)</span>.</p></li>
+<li><p>By pigeon hole principle, one color <span class="math inline">\(i \in r\)</span> must appear infinitely often among these monochromatic <span class="math inline">\(IP_{k}\)</span>-sets.</p></li>
+<li><p>In other words, <span class="math inline">\(c^{- 1}(i)\)</span> is an <span class="math inline">\(IP_{\omega}\)</span>-set.</p></li>
+</ul>
+<p>We also know that <span class="math inline">\(IP_{\omega_{1}}\)</span>-sets are partition regular: after all, we have shown that <span class="math inline">\(IP_{\omega_{1}}\)</span>-sets are exactly IP-sets, so HIndman’s Theorem gives us partition regularity.</p>
+<p>The question is whether any other type of <span class="math inline">\(IP_{\alpha}\)</span>-set is partition regular. We will see later that there are club many such <span class="math inline">\(\alpha\)</span>.</p>
+<h2 id="ip_omega2-sets-are-partition-regular"><span class="math inline">\(IP_{\omega^{2}}\)</span>-sets are partition regular</h2>
+<p>The simple, but key idea will be that any <span class="math inline">\(r\)</span>-coloring of an <span class="math inline">\(IP_{\omega \cdot F_{r}(n)}\)</span> will have a monochromatic <span class="math inline">\(IP_{\omega \cdot n}\)</span> subset. Then all we have to do is apply the pigeon hole principle just as for partition regularity of <span class="math inline">\(IP_{\omega}\)</span>-sets. We give a different proof than Beiglboeck-Towsner for this that could generalize better to larger ordinals.</p>
+<h4 id="block-homogeneous-strategies">Block-homogeneous strategies</h4>
+<p>To be able to speak about things efficiently, we need an auxiliary notion, the concept of a block-homogeneous strategy.</p>
+<h4 id="definition">Definition</h4>
+<p>Consider <span class="math inline">\(X\)</span>, an <span class="math inline">\(IP_{\omega \cdot n}\)</span>-set, a coloring <span class="math inline">\(:X \rightarrow r\)</span>.<br />
+Consider a play <span class="math inline">\((x_{\alpha_{0}},\ldots,x_{\alpha_{n}})\)</span>.<br />
+Then <span class="math inline">\(\alpha_{i} = \omega \cdot n_{i} + k_{i}\)</span> for some <span class="math inline">\(n_{i} &lt; n,k_{i} \in \omega\)</span>.<br />
+We say that player I has a block-homogeneous strategy if for all plays according to the strategy</p>
+<p><span class="math display">\[c(\bigcup_{i \in s}^{}x_{\alpha_{i}}) = c(\bigcup_{i \in t}^{}x_{\alpha_{i}})\]</span></p>
+<p>whenever <span class="math inline">\(\{ n_{i}:i \in s\} = \{ n_{i}:i \in t\}\)</span><br />
+In other words, the color of <span class="math inline">\(x \in FP(\mathbf{x})\)</span> only depends on the combination of <span class="math inline">\(\omega\)</span>-blocks of II’s moves that come up in the indices of the element’s generators.<br />
+Note that a block-homegeneous strategy on an <span class="math inline">\(IP_{\omega \cdot n}\)</span>-set comes with a color scheme <span class="math inline">\(scheme:2^{n} \cong FP(\{ n_{i}\}_{i &lt; n}) \rightarrow r\)</span> that encodes the colors of all possible combinations of <span class="math inline">\(\omega\)</span>-blocks.</p>
+<p>It seems to be key to understand how to generalize this notion to higher ordinals.</p>
+<p>The key for our argument will be the following lemma.</p>
+<h4 id="lemma">Lemma</h4>
+<p>If <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega \cdot n}\)</span>, then for every <span class="math inline">\(r\)</span> and every <span class="math inline">\(r\)</span>-coloring, player I has a block-homogeneous strategy for <span class="math inline">\(G_{\omega \cdot n}(X)\)</span>.</p>
+<p>This is somewhat surprising since one would expect it to be harder to play a block-homogeneous match. I’m guessing a generalization will forces us to reduce the rank a little.</p>
+<h4 id="proof-4">Proof</h4>
+<ul>
+<li><p>We essentially use the canonical form of <span class="math inline">\(IP_{\omega \cdot n}\)</span>-sets.</p></li>
+<li><p>Consider <span class="math inline">\(X_{0}: = \{ x \in X:x^{- 1}X \cap X\text{\ is\ at\ least\ }IP_{\omega \cdot (n - 1)}\}\)</span></p></li>
+<li><p>By assumption on <span class="math inline">\(X\)</span>, we know that <span class="math inline">\(X_{0}\)</span> is an <span class="math inline">\(IP_{\omega}\)</span>-set.</p></li>
+<li><p>Thin it out to become a disjoint union of <span class="math inline">\(FP_{k}\)</span>-sets generated by sequences <span class="math inline">\(\mathbf{s}^{k}\)</span>.</p></li>
+<li><p>Remember each <span class="math inline">\(x \in X_{0}\)</span> is in exactly one <span class="math inline">\(FP(\mathbf{s}^{k})\)</span>.</p></li>
+<li><p>Also, for each <span class="math inline">\(k\)</span> we know that <span class="math inline">\(\bigcap_{z \in FP(\mathbf{s}^{k})}^{}z^{- 1}X \cap X\)</span> is <span class="math inline">\(IP_{\omega \cdot (n - 1)}\)</span>.</p></li>
+<li><p>Now for each <span class="math inline">\(x \in X_{0}\)</span> define a coloring <span class="math inline">\(c_{x}:\bigcap_{z \in FP(\mathbf{s}^{k})}^{}z^{- 1}X \cap X \rightarrow r^{2^{k}}\)</span> by coding the colors of each <span class="math inline">\(y \in \bigcap_{z \in FP(\mathbf{s}^{k})}^{}z^{- 1}X \cap X\)</span> together with every <span class="math inline">\(z \cup y\)</span> (for <span class="math inline">\(z \in FP(\mathbf{s}^{k})\)</span>).</p></li>
+<li><p>Note that even though we have increased the number of colors, we can apply our induction hypothesis since it works for all numbers of colors.</p></li>
+<li><p>By induction hypothesis, we have a block-homogeneous strategy for each <span class="math inline">\(\bigcap_{z \in FP(\mathbf{s}^{k})}^{}z^{- 1}X \cap X\)</span>.</p></li>
+<li><p>Recall that this means we have, for each <span class="math inline">\(x \in X\)</span> a scheme <span class="math inline">\(scheme_{x}:2^{n} \rightarrow r\)</span> that codes how the block-homegeneous strategies guarantee their colors.</p></li>
+<li><p>But this means we have a coloring <span class="math inline">\(c\prime:X_{0} \rightarrow r^{2^{n}}\)</span> mapping each point to its (coded) scheme.</p></li>
+<li><p>Since <span class="math inline">\(IP_{\omega}\)</span>-sets are partition regular, we find a homogeneous <span class="math inline">\(X_{0}\prime\)</span> which is <span class="math inline">\(IP_{\omega}\)</span>. Note that this also means that <span class="math inline">\(X_{0}\prime\)</span> is homogeneous (which we could also ensure by refining it once more via the original <span class="math inline">\(c\)</span>).</p></li>
+<li><p>Thin <span class="math inline">\(X_{0}\prime\)</span> out to its canonical form.</p></li>
+<li><p>We can now describe a strategy for player I.</p>
+<ul>
+<li><p>If II begins with <span class="math inline">\(\omega \cdot (n - 1) + l\)</span> choose the unique <span class="math inline">\(l\)</span>-long FP-set in <span class="math inline">\(X_{0}\prime\)</span>.</p></li>
+<li><p>While II plays above <span class="math inline">\(\omega \cdot (n - 1)\)</span>, player I plays from that sequence.</p></li>
+<li><p>Note that this sequence is a subset of one of the <span class="math inline">\(FP(\mathbf{s}^{k})\)</span> from our original <span class="math inline">\(X_{0}\)</span> (thanks to our canonical form).</p></li>
+<li><p>When II plays below <span class="math inline">\(\omega \cdot (n - 1)\)</span>, play according to the strategy from <span class="math inline">\(\bigcap_{z \in FP(\mathbf{s}^{k})}^{}z^{- 1}X \cap X\)</span>.</p></li>
+</ul></li>
+<li><p>Since our moves above <span class="math inline">\(\omega \cdot (n - 1)\)</span> were in <span class="math inline">\(X_{0}\prime\)</span>, we know that they agree on that strategy.</p></li>
+<li><p>In other words, our whole strategy is block-homogeneous.</p></li>
+</ul>
+<p>With this lemma, we can calculate some transfinite Folkman-numbers.</p>
+<h4 id="lemma-1">Lemma</h4>
+<p>Whenever <span class="math inline">\(X\)</span> is <span class="math inline">\(IP_{\omega \cdot F_{r}(n)}\)</span> and <span class="math inline">\(c:X \rightarrow r\)</span>, then we find a homogeneous <span class="math inline">\(IP_{\omega \cdot n}\)</span> subset of <span class="math inline">\(X\)</span>.<br />
+In other words, <span class="math inline">\(F_{r}(\omega \cdot n) = \omega \cdot F_{r}(n)\)</span>.</p>
+<h4 id="proof-5">Proof</h4>
+<ul>
+<li><p>By the previous lemma, we have a block homogeneous strategy for <span class="math inline">\(X\)</span></p></li>
+<li><p>This means the associated color scheme is a map <span class="math inline">\(scheme:2^{n} \cong FP(\{ n_{i}\}_{i &lt; n}) \rightarrow r\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(F_{r}(n)\)</span> is the Folkman number, we can find <span class="math inline">\(\mathbf{t} = (t_{i})_{i &lt; n}\)</span> such that <span class="math inline">\(FP(\mathbf{t}) \subseteq FP(\{ n_{i}\}_{i &lt; n})\)</span> is <span class="math inline">\(scheme\)</span>-monochromatic.</p>
+<ul>
+<li><p>The elements <span class="math inline">\(t_{i}\)</span> and their unions should be thought of as a “hint” while playing an <span class="math inline">\(\omega \cdot F_{r}(n)\)</span>-game: at the end look at combinations where something from each <span class="math inline">\(\omega\)</span>-block noted by <span class="math inline">\(t_{i}\)</span> appears.</p></li>
+<li><p>Note that the <span class="math inline">\(scheme\)</span>-homogeneity means that the block-homogeneous strategy is monochrome for combinations that follow this “hint”.</p></li>
+</ul></li>
+<li><p>We can now describe a strategy for player I using the block-homogeneous strategy and the “hints” from <span class="math inline">\(\mathbf{t}\)</span>.</p>
+<ul>
+<li><p>II plays some <span class="math inline">\(\omega \cdot (n - 1) + k\)</span>.</p></li>
+<li><p>Player I starts an <span class="math inline">\(\omega \cdot F_{r}(n)\)</span> game on the side as follows:</p>
+<ul>
+<li><p>Pretend II plays <span class="math inline">\(\omega \cdot \min(t_{0}) + k,\ldots\omega \cdot \min(t_{0}),\ldots,\omega \cdot \max(t_{0}) + k\ldots,\omega \cdot \max(t_{0})\)</span>.</p></li>
+<li><p>The resulting play yields a sequence of length <span class="math inline">\(|t_{0}| \cdot k\)</span>.</p></li>
+<li><p>Turn these into <span class="math inline">\(k\)</span>-many sets, unioning up every <span class="math inline">\((k + 1)\)</span>th element.</p></li>
+</ul></li>
+<li><p>Now back to the actual game</p></li>
+<li><p>While II plays above <span class="math inline">\(\omega \cdot (n - 1)\)</span>, player I responds with the <span class="math inline">\(k -\)</span>-many elements we just build on the side.</p></li>
+<li><p>When II drops below <span class="math inline">\(\omega \cdot (n - 1)\)</span>, player I continue using the remaining <span class="math inline">\(t_{i}\)</span> in the same manner (but possibly with other values for <span class="math inline">\(k\)</span>).</p></li>
+</ul></li>
+<li><p>By the use of a block-homegeneous strategy and the choice of the <span class="math inline">\(t_{i}\)</span>, player I will play a homogeneous sequence.</p></li>
+</ul>
+<p>Before we proceed to prove the theorem, let us note a small corollary.</p>
+<h4 id="corollary-2">Corollary</h4>
+<p>The canonical form of an <span class="math inline">\(IP_{\omega^{2}}\)</span>-set can be sketched as “pairwise disjoint union of (canonical) <span class="math inline">\(IP_{\omega \cdot n}\)</span>-sets”</p>
+<h4 id="proof-6">Proof</h4>
+<ul>
+<li><p>Inductively choose such sets.</p></li>
+<li><p>At each step pick an <span class="math inline">\(IP_{\omega \cdot k}\)</span> set so large, that removing the previously chosen <span class="math inline">\(IP_{\omega \cdot i}\)</span> sets leaves us with an <span class="math inline">\(IP_{\omega \cdot n}\)</span>-set (this is possible because it corresponds to a partition into <span class="math inline">\(n\)</span> parts)</p></li>
+</ul>
+<p>With the lemma we can easily derive our theorem.</p>
+<h4 id="theorem-1">Theorem</h4>
+<p><span class="math inline">\(IP_{\omega^{2}}\)</span>-sets are partition regular.</p>
+<h4 id="proof-7">Proof</h4>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> be <span class="math inline">\(IP_{\omega^{2}}\)</span> and <span class="math inline">\(c:X \rightarrow r\)</span>.</p></li>
+<li><p>By the above lemma, we find arbitrarily large monochromatic <span class="math inline">\(IP_{\omega \cdot n}\)</span>-subsets.</p></li>
+<li><p>By the pigeon hole principle, we finde one color <span class="math inline">\(i\)</span> with arbitrarily large monochromatic <span class="math inline">\(IP_{\omega \cdot n}\)</span>-sets.</p></li>
+<li><p>Hence <span class="math inline">\(c^{- 1}\)</span> is an <span class="math inline">\(IP_{\omega^{2}}\)</span>-set.</p></li>
+</ul>
+<h1 id="visual-buffer-between-peters-and-francoiss-notes">Visual buffer between Peter’s and Francois’s notes</h1>
+<p>Let <span class="math inline">\(f:\omega \rightarrow \alpha\)</span> be such that <span class="math inline">\(f^{- 1}(\beta)\)</span> is infinite for each <span class="math inline">\(\beta &lt; \alpha\)</span>. Let <span class="math inline">\(X_{f}\)</span> be the family of all nonempty finite subsets <span class="math inline">\(x = \{ x_{0},\ldots,x_{k - 1}\}\)</span> of <span class="math inline">\(\omega\)</span> such that <span class="math inline">\(x_{0} &lt; \cdots &lt; x_{k - 1}\)</span> and <span class="math inline">\(f(x_{0}) &gt; \cdots &gt; f(x_{k - 1})\)</span>.</p>
+<p>If <span class="math inline">\(\alpha\)</span> is a limit ordinal then the unordered <span class="math inline">\(IP\)</span>-rank of <span class="math inline">\(X_{f}\)</span> is <span class="math inline">\(\alpha\)</span>.</p>
+<p>For <span class="math inline">\(x \in X_{f}\)</span>, let <span class="math inline">\(n(x)\)</span> be the maximal size of a set <span class="math inline">\(t \in X_{f}\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(\max t &lt; \max x\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cap t = \varnothing\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cup t \in X_{f}\)</span>.</p></li>
+</ul>
+<p>Then define the <span class="math inline">\(f\)</span>-rank of <span class="math inline">\(x\)</span> to be the ordinal <span class="math inline">\(\text{rank}_{f}(x) = f(\max x) + n(x) &lt; \alpha\)</span>.</p>
+<p>If <span class="math inline">\(x,y \in X_{f}\)</span> are disjoint and <span class="math inline">\(x \cup y \in X_{f}\)</span> then <span class="math inline">\(\text{rank}_{f}(x \cup y) &lt; \min(\text{rank}_{f}(x),\text{rank}_{f}(y))\)</span>.</p>
+<p>Write <span class="math inline">\(f(\max x) = \omega\xi + p\)</span> and <span class="math inline">\(f(\max y) = \omega\zeta + q\)</span>, where <span class="math inline">\(p,q &lt; \omega\)</span>. Without loss of generality, we may assume that <span class="math inline">\(f(\max x) &lt; f(\max y)\)</span> and hence that <span class="math inline">\(\xi \leq \zeta\)</span>.</p>
+<p><em>Case</em> <span class="math inline">\(\xi &lt; \zeta\)</span><em>.</em> Then <span class="math inline">\(y\)</span> satisfies the three conditions in the definition of <span class="math inline">\(n(x)\)</span>. It follows at once that <span class="math inline">\(n(x \cup y) &lt; n(x)\)</span> and hence <span class="math inline">\(\text{rank}_{f}(x \cup y) &lt; \text{rank}_{f}(x) &lt; \text{rank}_{f}(y)\)</span>.</p>
+<p><em>Case</em> <span class="math inline">\(\xi = \zeta\)</span><em>.</em> Again, <span class="math inline">\(y\)</span> satisfies the three conditions in the definition of <span class="math inline">\(n(x)\)</span>. It follows that <span class="math inline">\(n(x \cup y) &lt; n(x)\)</span> and hence <span class="math inline">\(\text{rank}_{f}(x \cup y) &lt; \text{rank}_{f}(x)\)</span>. To see that <span class="math inline">\(\text{rank}_{f}(x \cup y) &lt; \text{rank}_{f}(y)\)</span>, consider the set</p>
+<p><span class="math display">\[t = \{ a \in x:f(a) &gt; f(\max y)\}.\]</span></p>
+<p>This is a possibly empty set satisfies the three conditions in the definition of <span class="math inline">\(n(y)\)</span>. It follows that <span class="math inline">\(n(t \cup y) \leq n(y)\)</span>. Now observe that</p>
+<p><span class="math display">\[n(x \cup y) \leq n(t \cup y) + (q - p - |x\backslash t|) \leq n(y) + (q - p - 1).\]</span></p>
+<p>It follows that</p>
+<p>$${\operatorname{rank}\nolimits}_f(x \cup y) \leq \omega\xi + p + n(y) + (q - p - 1) = \omega\zeta + (q + n(y) - 1) &lt; {\operatorname{rank}\nolimits}_f(y).\qedhere$$</p>
+<p>For every <span class="math inline">\(\beta &lt; \text{rank}_{f}(x)\)</span> there is a <span class="math inline">\(y \supseteq x\)</span> such that <span class="math inline">\(\text{rank}_{f}(y) = \beta\)</span>.</p>
+<p>Write <span class="math inline">\(f(\max x) = \omega\xi + p\)</span> where <span class="math inline">\(p &lt; \omega\)</span>. Let <span class="math inline">\(n = n(x)\)</span> and let <span class="math inline">\(t = \{ t_{0},\ldots,t_{n - 1}\} \in X_{f}\)</span> witnesses this fact. We consider three cases.</p>
+<p><em>Case</em> <span class="math inline">\(\beta = \omega\xi + p + k\)</span> <em>and</em> <span class="math inline">\(0 \leq k &lt; n\)</span><em>.</em> Let <span class="math inline">\(y = x \cup \{ t_{0},\ldots,t_{n - k - 1}\}\)</span>. Note that <span class="math inline">\(n(y) = k\)</span> and <span class="math inline">\(\max y = \max x\)</span>. Hence <span class="math inline">\(\text{rank}_{f}(y) = \omega\xi + p + k = \beta\)</span>.</p>
+<p><em>Case</em> <span class="math inline">\(\beta = \omega\xi + k\)</span> <em>and</em> <span class="math inline">\(0 \leq k &lt; p\)</span><em>.</em> Let <span class="math inline">\(y = x \cup t \cup \{ u_{0},\ldots,u_{p - k - 1}\}\)</span> where <span class="math inline">\(\max x &lt; u_{0} &lt; \cdots &lt; u_{p - k - 1}\)</span> and <span class="math inline">\(f(u_{i}) = \omega\xi + (p - i - 1)\)</span> for <span class="math inline">\(i = 0,\ldots,p - k - 1\)</span>. Note that <span class="math inline">\(n(y) = 0\)</span> and <span class="math inline">\(\max y = u_{p - k - 1}\)</span>. Hence <span class="math inline">\(\text{rank}_{f}(y) = f(u_{p - k - 1}) = \omega\xi + k = \beta\)</span>.</p>
+<p><em>Case</em> <span class="math inline">\(\beta &lt; \omega\xi\)</span><em>.</em> First pick <span class="math inline">\(u_{0} &gt; \max x\)</span> such that <span class="math inline">\(f(u_{0}) = \beta\)</span>. Then let <span class="math inline">\(y \in X_{f}\)</span> be a set of maximal size such that <span class="math inline">\(y \supseteq x \cup \{ u_{0}\}\)</span> and <span class="math inline">\(\max y = u_{0}\)</span>. Note that <span class="math inline">\(n(y) = 0\)</span> and hence <span class="math inline">\(\text{rank}_{f}(y) = f(u_{0}) = \beta\)</span>.</p>
+<p>Now consider a play in the unordered game <span class="math inline">\(G_{\lambda}(X_{f})\)</span>.</p>
+<p><span class="math display">\[\begin{matrix}
+r|cccccccI &amp; &amp; x_{0} &amp; &amp; x_{1} &amp; &amp; x_{2} &amp; \cdots \\
+II &amp; \alpha_{0} &amp; &amp; \alpha_{1} &amp; &amp; \alpha_{2} &amp; &amp; \cdots \\
+\end{matrix}\]</span></p>
+<p>Note that the sets <span class="math inline">\(y_{i} = x_{0} \cup \cdots \cup x_{i}\)</span> are such that</p>
+<p><span class="math display">\[\text{rank}_{f}(y_{0}) &gt; \text{rank}_{f}(y_{1}) &gt; \text{rank}_{f}(y_{2}) &gt; \cdots\]</span></p>
+<p>If <span class="math inline">\(\lambda &gt; \alpha\)</span>, then <span class="math inline">\(II\)</span> can play <span class="math inline">\(\alpha_{0} = \alpha\)</span> and <span class="math inline">\(\alpha_{i + 1} = \text{rank}_{f}(y_{i})\)</span> to win. If <span class="math inline">\(\lambda \leq \alpha\)</span>, then <span class="math inline">\(I\)</span> can play <span class="math inline">\(x_{i}\)</span> so that <span class="math inline">\(\text{rank}_{f}(y_{i}) = \alpha_{i}\)</span> to win.</p>
+<p>Let <span class="math inline">\(\alpha\)</span> be a limit ordinal. Define <span class="math inline">\(\vartheta:\alpha\beta \rightarrow \beta\)</span> and <span class="math inline">\(\varrho:\alpha\beta \rightarrow \alpha\)</span> by the equation <span class="math inline">\(\gamma = \alpha\vartheta(\gamma) + \varrho(\gamma)\)</span>. Let <span class="math inline">\(f:\omega \rightarrow \alpha\beta\)</span> be such that <span class="math inline">\(f^{- 1}(\gamma)\)</span> is infinite for each <span class="math inline">\(\gamma &lt; \alpha\beta\)</span> and let <span class="math inline">\(X = X_{f}\)</span> as above. Define the partition <span class="math inline">\(X = X_{0} \cup X_{1}\)</span> by</p>
+<p><span class="math display">\[X_{0} = \{ x \in X:\vartheta(f(\min x)) = \vartheta(f(\max x))\}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[X_{1} = \{ x \in X:\vartheta(f(\min x)) &gt; \vartheta(f(\max x))\}.\]</span></p>
+<p>The <span class="math inline">\(IP\)</span>-rank of <span class="math inline">\(X_{0}\)</span> is <span class="math inline">\(\alpha\)</span>.</p>
+<p>For <span class="math inline">\(x \in X_{0}\)</span>, let <span class="math inline">\(n_{0}(x)\)</span> be the maximal size of a set <span class="math inline">\(t\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(\max t &lt; \max x\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cap t = \varnothing\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cup t \in X_{0}\)</span>.</p></li>
+</ul>
+<p>Define the rank function <span class="math inline">\(\text{rank}_{0}(x) = \varrho(f(\max x)) + n_{0}(x)\)</span>.</p>
+<p>If <span class="math inline">\(x,y \in X_{0}\)</span> are disjoint and <span class="math inline">\(x \cup y \in X_{0}\)</span> then <span class="math inline">\(\text{rank}_{0}(x \cup y) &lt; \min(\text{rank}_{0}(x),\text{rank}_{0}(y))\)</span>.</p>
+<p>Similar to Lemma ???.</p>
+<p>For every <span class="math inline">\(\gamma &lt; \text{rank}_{0}(x)\)</span> there is a <span class="math inline">\(y \supseteq x\)</span> such that <span class="math inline">\(\text{rank}_{0}(y) = \gamma\)</span>.</p>
+<p>Similar to Lemma ???.</p>
+<p>Now consider a play in the unordered game <span class="math inline">\(G_{\lambda}(X_{0})\)</span>.</p>
+<p><span class="math display">\[\begin{matrix}
+r|cccccccI &amp; &amp; x_{0} &amp; &amp; x_{1} &amp; &amp; x_{2} &amp; \cdots \\
+II &amp; \alpha_{0} &amp; &amp; \alpha_{1} &amp; &amp; \alpha_{2} &amp; &amp; \cdots \\
+\end{matrix}\]</span></p>
+<p>Note that the sets <span class="math inline">\(y_{i} = x_{0} \cup \cdots \cup x_{i}\)</span> are such that</p>
+<p><span class="math display">\[\text{rank}_{0}(y_{0}) &gt; \text{rank}_{0}(y_{1}) &gt; \text{rank}_{0}(y_{2}) &gt; \cdots\]</span></p>
+<p>If <span class="math inline">\(\lambda &gt; \alpha\)</span>, then <span class="math inline">\(II\)</span> can play <span class="math inline">\(\alpha_{0} = \alpha\)</span> and <span class="math inline">\(\alpha_{i + 1} = \text{rank}_{0}(y_{i})\)</span> to win. If <span class="math inline">\(\lambda \leq \alpha\)</span>, then <span class="math inline">\(I\)</span> can play <span class="math inline">\(x_{i}\)</span> so that <span class="math inline">\(\text{rank}_{0}(y_{i}) = \alpha_{i}\)</span> to win.</p>
+<p>The <span class="math inline">\(IP\)</span>-rank of <span class="math inline">\(X_{1}\)</span> is no more than <span class="math inline">\(\omega\beta\)</span>.</p>
+<p>For <span class="math inline">\(x \in X_{1}\)</span>, let <span class="math inline">\(n_{1}(x)\)</span> be the maximal size of a set <span class="math inline">\(t\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(\vartheta(f(\max t)) &gt; \vartheta(f(\max x))\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cap t = \varnothing\)</span>,</p></li>
+<li><p><span class="math inline">\(x \cup t \in X_{1}\)</span>.</p></li>
+</ul>
+<p>Note that the first and last clauses entail that <span class="math inline">\(\max t &lt; \max x\)</span>, so there are only finitely many sets <span class="math inline">\(t\)</span> which satisfy the three conditions. Define the rank function <span class="math inline">\(\text{rank}_{1}(x) = \omega\vartheta(f(\max x)) + n_{1}(x) &lt; \omega\beta\)</span>.</p>
+<p>If <span class="math inline">\(x,y \in X_{1}\)</span> are disjoint and <span class="math inline">\(x \cup y \in X_{1}\)</span> then <span class="math inline">\(\text{rank}_{1}(x \cup y) &lt; \min(\text{rank}_{1}(x),\text{rank}_{1}(y))\)</span>.</p>
+<p>Without loss of generality, we may assume that <span class="math inline">\(\text{rank}_{1}(x) \leq \text{rank}_{1}(y)\)</span>.</p>
+<p>Note that we then have <span class="math inline">\(\vartheta(f(\max x)) \leq \vartheta(f(\max y))\)</span> which means that <span class="math inline">\(\vartheta(f(\max x \cup y)) = \vartheta(f(\max x))\)</span>. So we need to show that <span class="math inline">\(n_{1}(x \cup y) &lt; n_{1}(x)\)</span>.</p>
+<p>Since <span class="math inline">\(y \in X_{1}\)</span>, we know that</p>
+<p><span class="math display">\[t = \{ p \in y:\vartheta(f(p)) &gt; \vartheta(f(\max x))\}\]</span></p>
+<p>is a nonempty subset of <span class="math inline">\(y\)</span> which satisfies the three conditions in the definition of <span class="math inline">\(n_{1}(x)\)</span>. It follows at once that <span class="math inline">\(n_{1}(x \cup y) \leq n_{1}(x \cup t) &lt; n_{1}(x)\)</span>, as required.</p>
+<p>Now consider a play in the unordered game <span class="math inline">\(G_{\lambda}(X_{0})\)</span>.</p>
+<p><span class="math display">\[\begin{matrix}
+r|cccccccI &amp; &amp; x_{0} &amp; &amp; x_{1} &amp; &amp; x_{2} &amp; \cdots \\
+II &amp; \alpha_{0} &amp; &amp; \alpha_{1} &amp; &amp; \alpha_{2} &amp; &amp; \cdots \\
+\end{matrix}\]</span></p>
+<p>Note that the sets <span class="math inline">\(y_{i} = x_{0} \cup \cdots \cup x_{i}\)</span> are such that</p>
+<p><span class="math display">\[\text{rank}_{1}(y_{0}) &gt; \text{rank}_{1}(y_{1}) &gt; \text{rank}_{1}(y_{2}) &gt; \cdots\]</span></p>
+<p>If <span class="math inline">\(\lambda &gt; \alpha\)</span>, then <span class="math inline">\(II\)</span> can play <span class="math inline">\(\alpha_{0} = \alpha\)</span> and <span class="math inline">\(\alpha_{i + 1} = \text{rank}_{0}(y_{i}) + 1\)</span> to win.</p>
+<p>Let us say that <span class="math inline">\(X\)</span> is <em>closed under subunions</em> if <span class="math inline">\(x_{0},x_{1},\ldots,x_{k - 1}\)</span> is a disjoint sequence of elements of <span class="math inline">\(X\)</span> such that <span class="math inline">\(x_{0} \cup x_{1} \cup \cdots \cup x_{k - 1} \in X\)</span>, then the union of any subsequence of <span class="math inline">\(x_{0},x_{1},\ldots,x_{k - 1}\)</span> is in <span class="math inline">\(X\)</span> too.</p>
+<p>Suppose <span class="math inline">\(X\)</span> is closed under subunions. If player <span class="math inline">\(II\)</span> has a winning strategy in the game <span class="math inline">\(G(X)\)</span> with first move <span class="math inline">\(\alpha\)</span>, then <span class="math inline">\(X\)</span> admits a rank function into <span class="math inline">\(\alpha\)</span>.</p>
+<p>Let <span class="math inline">\(\sigma\)</span> be player II’s winning strategy. Given a set <span class="math inline">\(x \in X\)</span>, let <span class="math inline">\(\text{rank}_{\sigma}(x)\)</span> be the minimum value <span class="math inline">\(\sigma(z_{0},z_{1},\ldots,z_{k - 1})\)</span> where <span class="math inline">\(z_{0},z_{1},\ldots,z_{k - 1}\)</span> ranges over all the disjoint partitions of <span class="math inline">\(x\)</span> with elements of <span class="math inline">\(X\)</span>. We clearly have <span class="math inline">\(\text{rank}_{\sigma}(x) &lt; \sigma() = \alpha\)</span> for all <span class="math inline">\(x \in X\)</span>.</p>
+<p>To see that <span class="math inline">\(\text{rank}_{\sigma}\)</span> is a rank function, suppose that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are disjoint elements of <span class="math inline">\(X\)</span>. Let <span class="math inline">\(z_{0},z_{1},\ldots,z_{k - 1}\)</span> be a disjoint partition of <span class="math inline">\(x\)</span> with elements of <span class="math inline">\(X\)</span> such that <span class="math inline">\(\text{rank}_{\sigma}(x) = \sigma(z_{0},z_{1},\ldots,z_{k - 1})\)</span>. Note that since <span class="math inline">\(X\)</span> is closed under subunions, <span class="math inline">\(z_{0},z_{1},\ldots,z_{k - 1}\)</span> is a valid sequence of moves for player <span class="math inline">\(I\)</span> in <span class="math inline">\(G(X)\)</span>. Then <span class="math inline">\(z_{0},z_{1},\ldots,z_{k - 1},y\)</span> is a disjoint partition of <span class="math inline">\(x \cup y\)</span> with elements of <span class="math inline">\(X\)</span>. Again, since <span class="math inline">\(X\)</span> is closed under subunions, <span class="math inline">\(z_{0},z_{1},\ldots,z_{k - 1},y\)</span> is a valid sequence of movers for player <span class="math inline">\(I\)</span> in <span class="math inline">\(G(X)\)</span>. Therefore,</p>
+<p><span class="math display">\[\text{rank}_{\sigma}(x \cup y) \leq \sigma(z_{0},z_{1},\ldots,z_{k - 1},y) &lt; \sigma(z_{0},z_{1},\ldots,z_{k - 1}) = \text{rank}_{\sigma}(x).\]</span></p>
+<p>A symmetric argument shows that <span class="math inline">\(\text{rank}_{\sigma}(x \cup y) &lt; \text{rank}_{\sigma}(y)\)</span>.</p>
+<p>Suppose that <span class="math inline">\(T\)</span> is a tree of height at least <span class="math inline">\(\alpha \cdot \beta\)</span> and that <span class="math inline">\(s &lt; t &lt; T\)</span>. If <span class="math inline">\(c\)</span> is a coloring of <span class="math inline">\(FU(T + t + s)\)</span> such that for every <span class="math inline">\(x \in FU(t)\)</span> there is a <span class="math inline">\(y \in FU(s)\)</span> such that <span class="math inline">\(c(x) = c(x \cup y)\)</span>, then one of the following holds:</p>
+<ol type="1">
+<li><p>There is a tree <span class="math inline">\(T\prime \leq T\)</span> with height at least <span class="math inline">\(\beta\)</span> such that for every <span class="math inline">\(x \in FU(T\prime + t)\)</span> there is a <span class="math inline">\(y \in FU(s)\)</span> such that <span class="math inline">\(c(x) = c(x \cup y)\)</span>.</p></li>
+<li><p>There is a <span class="math inline">\(t\prime \in T\)</span> and a tree <span class="math inline">\(T\prime \leq T - t\prime\)</span> with height at least <span class="math inline">\(\alpha\)</span> such that for every <span class="math inline">\(x \in FU(T\prime)\)</span> there is a <span class="math inline">\(y \in FU_{0}(t \cup t\prime)\)</span> such that <span class="math inline">\(c(x \cup y) \neq c(x \cup y \cup z)\)</span> for every <span class="math inline">\(z \in FU(s)\)</span>.</p></li>
+</ol>
+<p>By indution on <span class="math inline">\(\beta\)</span>. The case <span class="math inline">\(\beta = 0\)</span> is trivial and so are limit cases.</p>
+<p>Suppose that <span class="math inline">\(T\)</span> has height at least <span class="math inline">\(\alpha \cdot \beta + \alpha\)</span>. Let $T_0 = \{ t \in T : \height(t) \geq \alpha\cdot\beta\}$ then <span class="math inline">\(T_{0}\)</span> is a tree of height at least <span class="math inline">\(\alpha\)</span>. If <span class="math inline">\(T_{0},\varnothing\)</span> satisfy condition , we’re done. Otherwise, there is an <span class="math inline">\(x_{0} \in FU(T_{0})\)</span> such that for every <span class="math inline">\(y \in FU_{0}(t)\)</span> there is some <span class="math inline">\(z \in FU(s)\)</span> such that <span class="math inline">\(c(x_{0} \cup y) = c(x_{0} \cup y \cup z)\)</span>.</p>
+<p>Apply the induction hypothesis to the tree <span class="math inline">\(T - \{ x_{0}\}\)</span>, <span class="math inline">\(s\)</span>, <span class="math inline">\(t \cup \{ x_{0}\}\)</span>, which is a tree of height at least <span class="math inline">\(\alpha \cdot \beta\)</span>.</p>
+<p>On the one hand, if there is a tree <span class="math inline">\(T\prime \leq T - \{ x_{0}\}\)</span> of height at least <span class="math inline">\(\beta\)</span> such that for every <span class="math inline">\(x \in FU(T\prime + t \cup \{ x_{0}\})\)</span> there is a <span class="math inline">\(y \in FU(s)\)</span> such that <span class="math inline">\(c(x) = c(x \cup y)\)</span>. Then <span class="math inline">\(T\prime + \{ x_{0}\}\)</span> has height at least <span class="math inline">\(\beta + 1\)</span> and it satisfies  since <span class="math inline">\(FU(T\prime + \{ x_{0}\} + t) = FU(T\prime + t \cup \{ x_{0}\})\)</span>.</p>
+<p>On the other hand, if there are a <span class="math inline">\(t\prime \in T - \{ x_{0}\}\)</span> and a tree <span class="math inline">\(T\prime \leq T - \{ x_{0}\} - t\prime\)</span> of height at least <span class="math inline">\(\alpha\)</span> for every <span class="math inline">\(x \in FU(T\prime)\)</span> there is a <span class="math inline">\(y \in FU(t \cup \{ x_{0}\} \cup t\prime)\)</span> such that <span class="math inline">\(c(x \cup y) \neq c(x \cup y \cup z)\)</span> for every <span class="math inline">\(z \in FU(s)\)</span>. Then <span class="math inline">\(\{ x_{0}\} \cup t\)</span> and <span class="math inline">\(T\prime\)</span> are as required</p>
+<p>Suppose that <span class="math inline">\(T\)</span> is a tree of height at least <span class="math inline">\(\alpha \cdot \beta\)</span> and that <span class="math inline">\(s &lt; T\)</span>. If <span class="math inline">\(c\)</span> is a coloring of <span class="math inline">\(FU(T + s)\)</span>, then one of the following holds:</p>
+<ol type="1">
+<li><p>There is a tree <span class="math inline">\(T\prime \leq T\)</span> with height at least <span class="math inline">\(\beta\)</span> such that for every <span class="math inline">\(x \in FU(T\prime)\)</span> there is a <span class="math inline">\(y \in FU(s)\)</span> such that <span class="math inline">\(c(x) = c(x \cup y)\)</span>.</p></li>
+<li><p>There is a <span class="math inline">\(t\prime \in T\)</span> and a tree <span class="math inline">\(T\prime \leq T - t\prime\)</span> with height at least <span class="math inline">\(\alpha\)</span> such that for every <span class="math inline">\(x \in FU(T\prime)\)</span> there is a <span class="math inline">\(y \in FU_{0}(t\prime)\)</span> such that <span class="math inline">\(c(x \cup y) \neq c(x \cup y \cup z)\)</span> for every <span class="math inline">\(z \in FU(s)\)</span>.</p></li>
+</ol>
+<p>Suppose that <span class="math inline">\(T\)</span> is a tree of height greater than <span class="math inline">\(\alpha^{r}\)</span> and that <span class="math inline">\(c\)</span> is a <span class="math inline">\(r\)</span>-coloring of <span class="math inline">\(FU(T)\)</span>. Then there are a <span class="math inline">\(s \in T\)</span> and a tree <span class="math inline">\(T\prime \leq T - s\)</span> with height at least <span class="math inline">\(\alpha\)</span> such that for every <span class="math inline">\(x \in FU(T\prime)\)</span> there is a <span class="math inline">\(y \in FU(s)\)</span> such that <span class="math inline">\(c(x) = c(x \cup y)\)</span>.</p>
+<p>We apply the previous corollary repeatedly. First, pick <span class="math inline">\(s_{1} \in T\)</span> such that <span class="math inline">\(T_{1} = T - s_{1}\)</span> has height at least <span class="math inline">\(\alpha^{r}\)</span>. Apply the corollary to <span class="math inline">\(T_{1},s_{1}\)</span>, to obtain either the required tree of height <span class="math inline">\(\alpha\)</span>, or a tree <span class="math inline">\(T_{1}\)</span> of height <span class="math inline">\(\alpha^{r - 1}\)</span> together with a <span class="math inline">\(t_{1}\)</span> wuch that for every <span class="math inline">\(x \in FU(T_{2})\)</span> there is a <span class="math inline">\(y \in FU_{0}(t_{1})\)</span> such that <span class="math inline">\(c(x \cup y) \neq c(x \cup y \cup z)\)</span> for every <span class="math inline">\(z \in FU(s_{1})\)</span>. In the latter case, we apply the corollary again to <span class="math inline">\(T_{2},s_{2} = s_{1} \cup t_{1}\)</span>. And so on until a suitable tree of height <span class="math inline">\(\alpha\)</span> is found.</p>
+<p>If we never find the required tree of height <span class="math inline">\(\alpha\)</span>, then we end up with a tree <span class="math inline">\(T_{r}\)</span> of height <span class="math inline">\(1\)</span> such that for every <span class="math inline">\(i\)</span> and every <span class="math inline">\(x \in FU(T_{r})\)</span> there is a <span class="math inline">\(y \in FU_{0}(t_{i})\)</span> such that <span class="math inline">\(c(x \cup y) \neq c(x \cup y \cup z)\)</span> for all <span class="math inline">\(z \in FU(s_{i})\)</span>. In particular, we obtain a sequence <span class="math inline">\(y_{i} \in FU_{0}(t_{i})\)</span> such that</p>
+<p><span class="math display">\[c(x \cup y_{i} \cup \cdots \cup y_{r}) \neq c(x \cup y_{j} \cup \cdots \cup y_{r})\]</span></p>
+<p>whenever <span class="math inline">\(i \neq j\)</span>.</p>
+</body>
+</html>

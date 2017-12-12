@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Grundzüge der Barrierefreiheit im Netz
+
+---
+
+# Übersicht
+
+1. Die Web Plattform: Barrierefreiheit frei Haus
+  * Mit HTML5 wurde HTML semantisch getrimmt
+    * übersicht http://html5doctor.com/
+    * Wir machen Barrierefreiheit meist selbst kaputt, weil wir schludern
+  * HTML+CSS ist die primäre "separation of concerns"
+  * SVG bietet hervorragenden Kompromiss zwischen visuellem und strukturiertem
+  * JS, canvas, webgl etc bieten extreme erweiterbarkeit
+1. Barrieren die wir aufbauen
+    * Visuell: für Menschen mit Blindheit, eingeschränktes Sehvermögen, Farbfehlsichtigkeit
+    * Akkustisch: Taubheit, Schwerhörigkeit
+    * Bewegung: keine Mausnutzung, langsamere Reaktionszeit, veringerte Feinmotorik
+    * Kognitiv: Lernbehinderungen, Ablenkbarkeit, Einschränkung bei der Verarbeitung großer Informationsmengen
+1. Barrierefreiheit definieren & testen
+  * BITV < WCAG
+    * BITV nur für Bund, sehr eingeschränkt
+    * http://webkrauts.de/artikel/2011/bitv-20-kraft
+  * WCAG: POUR Prinzipen
+    * Perceivable
+    * Operable
+    * Understandable
+    * Robust
+    * A, AA, AAA
+    * Barrierefreiheit als
+    * 2.0
+      * https://www.w3.org/Translations/WCAG20-de/
+    * aber bald 2.1 https://www.w3.org/TR/WCAG21/, http://adrianroselli.com/2017/08/whats-new-in-wcag-2-1.html
+  * 60+ Kriterien
+    * kurzform https://webaim.org/standards/wcag/checklist
+      * https://uni-24.de/webaims-wcag-2-0-checklist/
+      *
+    * Ausdrucken und Aufhängen!
+    * aber deutlich wenig ist relevant hier da nicht kontrollierbar durch euch (zB Moodle, IT)
+    * Section 1 (in part), 2.1, 2.4 (in part), 3.1, 4 (easy)
+    * more resources: https://webaim.org/articles/, oft gibt es übersetzungen, zB https://meiert.com/de/publications/translations/webaim.org/intro/
+  * Tools
+    * Chrome audit, tota11y, aXe, chromelens,
+    * chromevox, voiceover, nvda, ms narrator, orca
+      * https://www.youtube.com/watch?v=92pM6hJG6Wo
+      * https://www.youtube.com/watch?v=q_ATY9gimOM
+      * sysadmin level: tenon
+1. Dokumente präperieren: Struktur erkennen und erhalten
+  * Jede Schreibsoftware bieten struktur, Autoren nutzen sie oft nicht
+    * für Barrierefreiheit essentiell
+  * HTML5 struktur ist einfach und robust
+    * TOC, navigationen
+    * Sektionierung, Überschriften, Asides, Fuß, Adressen
+    * Paras, Listen, Zitate, Abbildungen, Tabellen, pre
+    * multimediales
+    * text: betonung, abkürzungen, definitionen, zitieren, code, kbd, samp, var
+2. Formeln und Gleichungen barrierefrei gestalten
+  * use the source!
+  * asciimath > TeX > mathml
+  * im vergleich
+2. Barrierefreie Visualisierung
+  * https://av.tib.eu/
+    * z.B. https://av.tib.eu/media/9456
+  * https://css-tricks.com/accessible-svgs/
+  * http://tex.stackexchange.com/questions/124279/tikz-add-alt-tag-caption-invisible-text-for-accessibility
+1. Dokumente präperieren: look around tools
+  * Word => bei defauls oder FernUni vorlagen bleiben, bleib strukturiert (Word kennt nur paragraphen), nutze den eingebauten equation editor
+    * aber konvertiere zu HTML mit pandoc oder anderem.
+  * TeX
+    * latexml
+    * tex4ht
+    * pandoc
+  * HTML
+    * markdown+extensions
+    * Authorea
+    * Google Docs
+    * special formatsmathbook XML
+3. Die Zukunft, ungleich verteilt
+  * https://youtu.be/_ZY_rFie2iw
+  * http://progressiveaccess.com/chemistry/index.php
+  * http://progressiveaccess.com/chemistry/resources.php
+
+---
+
+
+
+
+---
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<?xml-stylesheet href="erdos-hajnal-DMTCS.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="126.14583pt" height="107.63792pt" viewBox="-16.00087 -5.8997 126.14583 107.63792 ">
+<g transform="translate(0, 101.73822 ) scale(1,-1) translate(0,5.8997 )">
+      <g>
+ <g stroke="rgb(0.0%,0.0%,0.0%)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <g stroke-width="0.4pt">
+ <g>
+ <g>
+ <g stroke-width="0.8pt">
+ <g stroke-dasharray="0.8pt,2.0pt" stroke-dashoffset="0.0pt">
+ <path d=" M  39.83453 0.0 L  39.83453 39.83453  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,37.33453,-2.22221)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(2.5,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmsy" font-size="10">&#x2219;</tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,39.83453,-2.86638)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="8">
+</text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="1.2pt">
+ <path d=" M  0.95999 0.0 L  108.58498 0.0  " style="fill:none"/>
+ <g>
+ <g transform="matrix(-1.0,0.0,0.0,-1.0,0.95999,0.0)">
+ <g>
+ <g stroke-width="0.95999pt">
+ <g stroke-dasharray="none" stroke-dashoffset="0.0pt">
+ <g stroke-linecap="round">
+ <g stroke-linejoin="round">
+ <path d=" M  -1.92 2.56 C  -1.76 1.59999 0.0 0.15999 0.48 0.0 C  0.0 -0.15999 -1.76 -1.59999 -1.92 -2.56  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+  </g>
+ </g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,108.58498,0.0)">
+ <g>
+ <g stroke-width="0.95999pt">
+ <g stroke-dasharray="none" stroke-dashoffset="0.0pt">
+ <g stroke-linecap="round">
+ <g stroke-linejoin="round">
+ <path d=" M  -1.92 2.56 C  -1.76 1.59999 0.0 0.15999 0.48 0.0 C  0.0 -0.15999 -1.76 -1.59999 -1.92 -2.56  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+  </g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  9.95863 9.95863 L  39.83453 9.95863  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  29.8759 19.91727 L  59.7518 19.91727  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  69.71043 29.8759 L  99.58633 29.8759  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,-13.33449,-2.23332)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(5.23405,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">L</tspan><tspan baseline-shift="sub"><tspan font-family="cmmi" font-size="6">x</tspan></tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,15.67908,13.93611)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">1</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,45.55498,23.89474)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">2</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,80.41019,33.85338)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">3</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <g stroke-dasharray="0.8pt,2.0pt" stroke-dashoffset="0.0pt">
+ <path d=" M  49.79317 59.7518 L  49.79317 99.58633  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,47.29317,57.52959)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(2.5,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmsy" font-size="10">&#x2219;</tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,49.79317,56.88542)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(0.0,0)" text-anchor="middle"  font-size="8">
+</text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="1.2pt">
+ <path d=" M  0.95999 59.7518 L  108.58498 59.7518  " style="fill:none"/>
+ <g>
+ <g transform="matrix(-1.0,0.0,0.0,-1.0,0.95999,59.7518)">
+ <g>
+ <g stroke-width="0.95999pt">
+ <g stroke-dasharray="none" stroke-dashoffset="0.0pt">
+ <g stroke-linecap="round">
+ <g stroke-linejoin="round">
+ <path d=" M  -1.92 2.56 C  -1.76 1.59999 0.0 0.15999 0.48 0.0 C  0.0 -0.15999 -1.76 -1.59999 -1.92 -2.56  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+  </g>
+ </g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,108.58498,59.7518)">
+ <g>
+ <g stroke-width="0.95999pt">
+ <g stroke-dasharray="none" stroke-dashoffset="0.0pt">
+ <g stroke-linecap="round">
+ <g stroke-linejoin="round">
+ <path d=" M  -1.92 2.56 C  -1.76 1.59999 0.0 0.15999 0.48 0.0 C  0.0 -0.15999 -1.76 -1.59999 -1.92 -2.56  " style="fill:none"/>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+  </g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  9.95863 69.71043 L  39.83453 69.71043  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  49.79317 79.66907 L  79.66907 79.66907  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g stroke-width="0.8pt">
+ <path d=" M  29.8759 89.6277 L  59.7518 89.6277  " style="fill:none"/>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,-13.16087,58.1018)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(5.14725,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">L</tspan><tspan baseline-shift="sub"><tspan font-family="cmmi" font-size="6">y</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,20.65839,73.68791)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">1</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,65.47224,83.64655)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">2</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ <g>
+ <g>
+ <g transform="matrix(1.0,0.0,0.0,1.0,35.59634,93.60518)">
+ <g fill="rgb(0.0%,0.0%,0.0%)">
+ <text style="stroke:none" transform="scale(1,-1) translate(4.23819,0)" text-anchor="middle"  font-size="8">
+<tspan font-family="cmmi" font-size="8">I</tspan><tspan baseline-shift="sub"><tspan font-family="cmr" font-size="6">3</tspan> </tspan></text>
+</g>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+ </g>
+
+                                                  </g>
+</svg>

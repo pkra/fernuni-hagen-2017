@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+After a time $t$, the ground state $\ket{g}$ and the excited state $\ket{e}$ will each have accumulated a phase that is proportional to their energies:
+
+\begin{align}
+                \ket{\psi(0)} \to \ket{\psi(t)} = \frac{e^{-iE_1 t/\hbar}}{\sqrt{2}} \ket{g} + \frac{e^{-iE_2 t/\hbar}}{\sqrt{2}} \ket{e}\, .
+\end{align}
+
+We can take out the factor $e^{-iE_1 t/\hbar}$ as a global unobservable phase, and obtain
+
+\begin{align}\label{eq:atomequator}
+                \ket{\psi(t)} = \frac{1}{\sqrt{2}} \ket{g} + \frac{e^{-i(E_2 - E_1)t/\hbar}}{\sqrt{2}} \ket{e}\, .
+\end{align}
+
+\end{document}

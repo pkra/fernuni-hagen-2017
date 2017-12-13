@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .inverse {
+          background: #272822;
+          color: #777872;
+          text-shadow: 0 0 20px #333;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Technische Erstellung mathematisch- naturwissenschaftlicher Inhalte für das Web <br>Teil 2.
+
+[github.com/pkra/fernuni-hagen-2017/](https://github.com/pkra/fernuni-hagen-2017/) (direkt als [zip](https://github.com/pkra/fernuni-hagen-2017/archive/master.zip))
+
+(13. Dez. 2017, FernUni Hagen)
+
+---
+
+# Übersicht
+
+1. Orientierung (10 min)
+2. Ideensammlung (30 min)
+3. Aktive Pause (20 min)
+4. Analyse und Impulsvortrag (45 min)
+5. Pause (10 min)
+6. Erste Schritte und offene Arbeit (90 min)
+
+
+---
+
+# Werkzeuge
+
+* Microsoft Word and Libre Office
+* TeX
+  * [latexml](http://dlmf.nist.gov/LaTeXML/)
+    * `$ latexmlc --destination=index.html latexml.tex`
+  * [tex4ht](https://www.tug.org/tex4ht/)
+    * `$ htlatex tex4ht.tex tex4ht.cfg`
+* [pandoc](http://pandoc.org/)
+  * `$ pandoc --mathjax --selfcontained latex.tex -o pandoc/latex.html`
+* HTML
+  * markdown ([markdown](http://commonmark.org/), [stackedit](https://stackedit.io/app))
+  * Computing Notebooks ([Jupyter](https://jupyter.org/), [Rstudio](https://www.rstudio.com/))
+  * Cloud Authoring ([Authorea](https://www.authorea.com/), [Google Docs](https://docs.google.com))
+
+Beispieldateien: [github.com/pkra/fernuni-hagen-2017/](https://github.com/pkra/fernuni-hagen-2017/) (direkt als [zip](https://github.com/pkra/fernuni-hagen-2017/archive/master.zip))
+
+
+???
+* pandoc
+  * `$ pandoc --mathjax --selfcontained latex.tex -o pandoc/latex.html`
+  * no tikz
+* latexml
+   * `$ latexmlc --destination=index.html latexml.tex`
+     * we have to add MathJax (but gives ket for free wtf?)
+     * missing macros like mathfrak WTF
+     * weird tikz code for mathml
+  * but https://www.arxiv-vanity.com/
+  * http://dlmf.nist.gov/LaTeXML/manual/usage/usage.post.html
+* tex4ht
+  * `$ htlatex tex4ht.tex tex4ht.cfg`
+  * https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
+  * https://tex.stackexchange.com/questions/185791/converting-latex-to-html-but-keeping-equations-as-latex/185802#185802
+  * SVGs good but invalid (random `</p>`)
+  * most macros etc
+  * no document structure
+* google docs
+  * god awful
+* others
+  * authorea as interesting compromise
+  * stackedit.io
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
